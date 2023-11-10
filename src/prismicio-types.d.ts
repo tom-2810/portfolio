@@ -5,6 +5,45 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 /**
+ * Content for Blog documents
+ */
+interface BlogDocumentData {
+  /**
+   * title field in *Blog*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * image field in *Blog*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog.image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Blog document from Prismic
+ *
+ * - **API ID**: `blog`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type BlogDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<Simplify<BlogDocumentData>, "blog", Lang>;
+
+/**
  * Item in *contact → contact_link*
  */
 export interface ContactDocumentDataContactLinkItem {
@@ -63,7 +102,9 @@ export type ContactDocument<Lang extends string = string> =
     Lang
   >;
 
-type HomepageDocumentDataSlicesSlice = never;
+type HomepageDocumentDataSlicesSlice =
+  | FeaturedProjectsSlice
+  | FeaturedBlogsSlice;
 
 /**
  * Content for homepage documents
@@ -161,7 +202,174 @@ export type HomepageDocument<Lang extends string = string> =
     Lang
   >;
 
-export type AllDocumentTypes = ContactDocument | HomepageDocument;
+/**
+ * Content for Project documents
+ */
+interface ProjectDocumentData {
+  /**
+   * title field in *Project*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * image field in *Project*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Project document from Prismic
+ *
+ * - **API ID**: `project`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ProjectDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<ProjectDocumentData>,
+    "project",
+    Lang
+  >;
+
+export type AllDocumentTypes =
+  | BlogDocument
+  | ContactDocument
+  | HomepageDocument
+  | ProjectDocument;
+
+/**
+ * Primary content in *FeaturedBlogs → Primary*
+ */
+export interface FeaturedBlogsSliceDefaultPrimary {
+  /**
+   * image field in *FeaturedBlogs → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: featured_blogs.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Primary content in *FeaturedBlogs → Items*
+ */
+export interface FeaturedBlogsSliceDefaultItem {
+  /**
+   * Blog field in *FeaturedBlogs → Items*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: featured_blogs.items[].blog
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  blog: prismic.ContentRelationshipField<"blog">;
+}
+
+/**
+ * Default variation for FeaturedBlogs Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FeaturedBlogsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<FeaturedBlogsSliceDefaultPrimary>,
+  Simplify<FeaturedBlogsSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *FeaturedBlogs*
+ */
+type FeaturedBlogsSliceVariation = FeaturedBlogsSliceDefault;
+
+/**
+ * FeaturedBlogs Shared Slice
+ *
+ * - **API ID**: `featured_blogs`
+ * - **Description**: FeaturedBlogs
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FeaturedBlogsSlice = prismic.SharedSlice<
+  "featured_blogs",
+  FeaturedBlogsSliceVariation
+>;
+
+/**
+ * Primary content in *FeaturedProjects → Primary*
+ */
+export interface FeaturedProjectsSliceDefaultPrimary {
+  /**
+   * image field in *FeaturedProjects → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: featured_projects.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Primary content in *FeaturedProjects → Items*
+ */
+export interface FeaturedProjectsSliceDefaultItem {
+  /**
+   * project field in *FeaturedProjects → Items*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: featured_projects.items[].project
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  project: prismic.ContentRelationshipField<"project">;
+}
+
+/**
+ * Default variation for FeaturedProjects Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FeaturedProjectsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<FeaturedProjectsSliceDefaultPrimary>,
+  Simplify<FeaturedProjectsSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *FeaturedProjects*
+ */
+type FeaturedProjectsSliceVariation = FeaturedProjectsSliceDefault;
+
+/**
+ * FeaturedProjects Shared Slice
+ *
+ * - **API ID**: `featured_projects`
+ * - **Description**: FeaturedProjects
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FeaturedProjectsSlice = prismic.SharedSlice<
+  "featured_projects",
+  FeaturedProjectsSliceVariation
+>;
 
 declare module "@prismicio/client" {
   interface CreateClient {
@@ -173,13 +381,27 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      BlogDocument,
+      BlogDocumentData,
       ContactDocument,
       ContactDocumentData,
       ContactDocumentDataContactLinkItem,
       HomepageDocument,
       HomepageDocumentData,
       HomepageDocumentDataSlicesSlice,
+      ProjectDocument,
+      ProjectDocumentData,
       AllDocumentTypes,
+      FeaturedBlogsSlice,
+      FeaturedBlogsSliceDefaultPrimary,
+      FeaturedBlogsSliceDefaultItem,
+      FeaturedBlogsSliceVariation,
+      FeaturedBlogsSliceDefault,
+      FeaturedProjectsSlice,
+      FeaturedProjectsSliceDefaultPrimary,
+      FeaturedProjectsSliceDefaultItem,
+      FeaturedProjectsSliceVariation,
+      FeaturedProjectsSliceDefault,
     };
   }
 }

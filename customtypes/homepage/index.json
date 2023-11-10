@@ -32,7 +32,14 @@
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
-          "choices": {}
+          "choices": {
+            "featured_projects": {
+              "type": "SharedSlice"
+            },
+            "featured_blogs": {
+              "type": "SharedSlice"
+            }
+          }
         }
       }
     },

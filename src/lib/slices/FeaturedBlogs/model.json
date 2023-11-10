@@ -1,0 +1,38 @@
+{
+  "id": "featured_blogs",
+  "type": "SharedSlice",
+  "name": "FeaturedBlogs",
+  "description": "FeaturedBlogs",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "image": {
+          "type": "Image",
+          "config": {
+            "label": "image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {
+        "blog": {
+          "type": "Link",
+          "config": {
+            "label": "Blog",
+            "select": "document",
+            "customtypes": [
+              "blog"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

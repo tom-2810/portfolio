@@ -1,0 +1,38 @@
+{
+  "id": "featured_projects",
+  "type": "SharedSlice",
+  "name": "FeaturedProjects",
+  "description": "FeaturedProjects",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "image": {
+          "type": "Image",
+          "config": {
+            "label": "image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {
+        "project": {
+          "type": "Link",
+          "config": {
+            "label": "project",
+            "select": "document",
+            "customtypes": [
+              "project"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}
