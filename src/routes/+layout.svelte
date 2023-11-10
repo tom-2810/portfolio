@@ -6,7 +6,7 @@
 
   export let data;
 
-  setContext("contact-context", data.contact_link);
+  setContext("contact-context", data);
 </script>
 
 <div class="background">
@@ -36,12 +36,13 @@
     width: 100%;
     border-bottom: 1px solid rgb(56, 56, 56);
     background-color: rgb(32, 32, 32);
+    z-index: 1;
   }
   main {
     display: flex;
     flex-direction: column;
-    gap: 50rem;
-    margin-top: 4rem;
+    gap: 40rem;
+    margin: 4rem 0 40rem;
   }
   .background {
     position: fixed;
@@ -56,7 +57,7 @@
     margin: 0 auto;
     width: 100%;
     height: 100vh;
-    max-width: 70rem;
+    max-width: 75rem;
   }
   .columns > div {
     height: 100%;

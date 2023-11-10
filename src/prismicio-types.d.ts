@@ -84,6 +84,17 @@ interface ContactDocumentData {
   contact_link: prismic.GroupField<
     Simplify<ContactDocumentDataContactLinkItem>
   >;
+
+  /**
+   * status field in *contact*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.status
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  status: prismic.RichTextField;
 }
 
 /**

@@ -18,11 +18,11 @@
 <style>
     nav {
         width: 100%;
-        max-width: 70rem;
+        max-width: 75rem;
         margin: 0 auto;
-        font-size: 1.3rem;
+        font-size: 1.8rem;
     }
-    
+
     ul {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
@@ -33,7 +33,7 @@
         padding: 1rem 0 0 0;
         border-left: 1px solid rgb(56, 56, 56);
         width: 100%;
-        padding: 1rem 0 0 0;
+        padding: 2rem 0 0 0;
     }
     ul > li:last-of-type {
         border-right: 1px solid rgb(56, 56, 56);

@@ -42,13 +42,13 @@
         all: unset;
         cursor: pointer;
         display: block;
-        padding: 0.8rem 0;
+        padding: 1rem 0;
     }
     a > div {
         display: flex;
         flex-direction: row;
         width: 100%;
-        max-width: 70rem;
+        max-width: 75rem;
         margin: 0 auto;
         overflow: hidden;
     }
@@ -59,7 +59,7 @@
         transition: color, background-color 0.5s;
         color: white;
         border-top: 1px solid rgb(56, 56, 56);
-        font-size: 1.3rem;
+        font-size: 1.8rem;
     }
     li:last-of-type {
         border-bottom: 1px solid rgb(56, 56, 56);
