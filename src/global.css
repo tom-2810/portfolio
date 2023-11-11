@@ -21,7 +21,7 @@ h1 {
 h2 {
     position: relative;
     font-size: 12rem;
-    margin: 10rem auto;
+    margin: 10rem auto 2rem auto;
     width: fit-content;
     z-index: -1;
 }
@@ -87,7 +87,7 @@ a {
     }
 
     100% {
-        max-width: 58rem;
+        max-width: 64rem;
         height: 80vh;
     }
 }
