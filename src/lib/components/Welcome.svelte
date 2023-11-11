@@ -29,7 +29,7 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     row-gap: 2rem;
-    max-width: 70rem;
+    max-width: 75rem;
     margin: 8vh auto;
     height: 80vh;
   }
@@ -53,7 +53,7 @@
   }
   .banner {
     position: fixed;
-    bottom: 11rem;
+    bottom: 8rem;
     left: -20rem;
     rotate: 30deg;
     background-color: rgb(255, 0, 0);
@@ -77,7 +77,7 @@
     color: white;
   }
 
-  @media only screen and (max-width: 830px) {
+  @media only screen and (max-width: 900px) {
     .banner {
       rotate: 0deg;
       bottom: 0;
@@ -85,7 +85,7 @@
     }
   }
 
-  @media only screen and (max-height: 910px) and (min-width: 820px) {
+  @media only screen and (max-height: 780px) and (min-width: 750px) {
     .banner {
       rotate: 0deg;
       bottom: 0;
@@ -93,7 +93,7 @@
     }
   }
 
-  @media only screen and (min-height: 1210px) {
+  @media only screen and (min-height: 1030px) {
     .banner {
       rotate: 0deg;
       bottom: 0;
