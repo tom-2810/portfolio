@@ -2,7 +2,6 @@
   import { getContext } from "svelte";
 
   const contact = getContext("contact-context");
-  console.log(contact);
 </script>
 
 <div class="contact">

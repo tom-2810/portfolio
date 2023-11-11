@@ -1,7 +1,7 @@
 <script>
   import Footer from "../lib/components/Footer.svelte";
   import Navigation from "../lib/components/Navigation.svelte";
-  import { setContext } from "svelte";
+  import { onMount, setContext } from "svelte";
   import global from "../global.css";
 
   export let data;
@@ -17,17 +17,16 @@
     <div />
   </div>
 </div>
+  <header>
+    <Navigation />
+  </header>
 
-<header>
-  <Navigation />
-</header>
-
-<main>
-  <slot />
-</main>
-<footer>
-  <Footer />
-</footer>
+  <main>
+    <slot />
+  </main>
+  <footer>
+    <Footer />
+  </footer>
 
 <style>
   header {
@@ -41,8 +40,11 @@
   main {
     display: flex;
     flex-direction: column;
-    gap: 40rem;
+    gap: 30rem;
     margin: 4rem 0 40rem;
+  }
+  footer {
+    margin-bottom: 40vh;
   }
   .background {
     position: fixed;

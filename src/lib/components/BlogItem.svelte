@@ -18,8 +18,13 @@
             loading="eager"
         />
         <div>
-            <h4>{blog.data.title}</h4>
-            <span>read</span>
+            <div>
+                <h4>{blog.data.title}</h4>
+            </div>
+            <div />
+            <div>
+                <span>read</span>
+            </div>
         </div>
     </a>
 </li>
@@ -42,18 +47,30 @@
         all: unset;
         cursor: pointer;
         display: block;
-        padding: 1rem 0;
+        
     }
     a > div {
-        display: flex;
-        flex-direction: row;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+
         width: 100%;
         max-width: 75rem;
         margin: 0 auto;
         overflow: hidden;
     }
+    a > div > div:first-of-type {
+        grid-column: 1/3;
+    }
+    a > div > div:last-of-type {
+        border-right: 1px solid rgb(56, 56, 56);
+        grid-column: 4;
+    }
+    a > div > div {
+        border-left: 1px solid rgb(56, 56, 56);
+        padding: 1rem 0;
+    }
     a > div span {
-        margin-left: auto;
+        float: right;
     }
     li {
         transition: color, background-color 0.5s;
@@ -64,7 +81,7 @@
     li:last-of-type {
         border-bottom: 1px solid rgb(56, 56, 56);
     }
-    li:has(a:is(:hover,:focus)) {
+    li:has(a:is(:hover, :focus)) {
         color: black;
 
         transition: 0s;
@@ -73,14 +90,14 @@
     h4 {
         transition: 0.5s;
     }
-    a:is(:hover,:focus) h4 {
+    a:is(:hover, :focus) h4 {
         transform: translateX(8px);
         transition: 0s;
     }
-    a:is(:hover,:focus) span::before {
+    a:is(:hover, :focus) span::before {
         content: "{ ";
     }
-    a:is(:hover,:focus) span::after {
+    a:is(:hover, :focus) span::after {
         content: " }";
     }
 </style>
