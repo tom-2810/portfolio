@@ -64,7 +64,7 @@
     margin: 0 auto;
     width: 100%;
     height: 100vh;
-    max-width: 75rem;
+    max-width: 70rem;
   }
   .columns > div {
     height: 100%;

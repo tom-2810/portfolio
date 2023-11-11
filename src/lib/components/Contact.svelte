@@ -20,7 +20,7 @@
   .contact {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    max-width: 75rem;
+    max-width: 70rem;
     margin: 0 auto;
     color: white;
   }

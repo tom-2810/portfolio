@@ -13,7 +13,7 @@
     ul {
         display: flex;
         flex-direction: column;
-        max-width: 75rem;
+        max-width: 70rem;
         margin: 0 auto;
         row-gap: 13rem;
     }

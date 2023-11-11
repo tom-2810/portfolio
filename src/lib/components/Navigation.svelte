@@ -18,7 +18,7 @@
 <style>
     nav {
         width: 100%;
-        max-width: 75rem;
+        max-width: 70rem;
         margin: 0 auto;
         font-size: 1.8rem;
     }

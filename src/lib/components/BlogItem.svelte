@@ -52,7 +52,7 @@
         grid-template-columns: repeat(4, 1fr);
 
         width: 100%;
-        max-width: 75rem;
+        max-width: 70rem;
         margin: 0 auto;
         overflow: hidden;
     }
