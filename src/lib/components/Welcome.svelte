@@ -56,7 +56,7 @@
     bottom: 11rem;
     left: -20rem;
     rotate: 30deg;
-    background-color: white;
+    background-color: rgb(255, 0, 0);
     font-size: 3rem;
     flex-shrink: 0;
     display: flex;
@@ -74,6 +74,7 @@
     flex-shrink: 0;
     animation: scroll 40s linear infinite;
     text-transform: uppercase;
+    color: white;
   }
 
   @media only screen and (max-width: 900px) {
