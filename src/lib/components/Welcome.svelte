@@ -53,7 +53,7 @@
   }
   .banner {
     position: fixed;
-    bottom: 8rem;
+    bottom: 9rem;
     left: -20rem;
     rotate: 30deg;
     background-color: rgb(255, 0, 0);
