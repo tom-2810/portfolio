@@ -77,6 +77,12 @@
     color: white;
   }
 
+  @media only screen and (max-width: 960px) {
+    .banner {
+      bottom: 10rem;
+    }
+  }
+
   @media only screen and (max-width: 900px) {
     .banner {
       rotate: 0deg;
