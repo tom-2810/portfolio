@@ -155,6 +155,17 @@ interface HomepageDocumentData {
   name: prismic.KeyTextField;
 
   /**
+   * banner field in *homepage*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepage.banner
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  banner: prismic.KeyTextField;
+
+  /**
    * Slice Zone field in *homepage*
    *
    * - **Field Type**: Slice Zone

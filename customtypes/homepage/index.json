@@ -28,6 +28,13 @@
           "placeholder": ""
         }
       },
+      "banner": {
+        "type": "Text",
+        "config": {
+          "label": "banner",
+          "placeholder": ""
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",

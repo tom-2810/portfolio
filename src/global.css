@@ -23,14 +23,13 @@ h2 {
     font-size: 12rem;
     margin: 10rem auto;
     width: fit-content;
-    
     z-index: -1;
 }
 
 main h2 {
     animation: fadein linear both;
     animation-timeline: view(block);
-    animation-range: cover 0% cover 30%;
+    animation-range: cover 0% cover 40%;
 }
 
 a {
@@ -88,7 +87,7 @@ a {
     }
 
     100% {
-        max-width: 65rem;
+        max-width: 63rem;
         height: 80vh;
     }
 }

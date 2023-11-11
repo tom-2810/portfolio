@@ -34,10 +34,9 @@
         position: fixed;
         display: none;
         pointer-events: none;
-        height: 15rem;
-        padding: 0.7rem;
-        background-color: rgb(255, 234, 208);
-        border: 1px solid #303030;
+        height: 13rem;
+        padding: 0.5rem;
+        background-color: #303030;
         z-index: 1;
     }
     :is(a:hover, a:focus) img {
@@ -47,7 +46,6 @@
         all: unset;
         cursor: pointer;
         display: block;
-        
     }
     a > div {
         display: grid;

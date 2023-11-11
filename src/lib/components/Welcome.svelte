@@ -11,6 +11,17 @@
   <div class="contact">
     <Contact />
   </div>
+
+  <div class="banner">
+    <div class="banner-content">
+      {data.banner} ! {data.banner} ! {data.banner} ! {data.banner} ! {data.banner}
+      ! {data.banner} !
+    </div>
+    <div class="banner-content">
+      {data.banner} ! {data.banner} ! {data.banner} ! {data.banner} ! {data.banner}
+      ! {data.banner} !
+    </div>
+  </div>
 </section>
 
 <style>
@@ -25,11 +36,12 @@
   h1 {
     grid-column: span 2;
     height: fit-content;
-    /* text-wrap: balance; */
+    text-wrap: balance;
   }
   img {
     grid-column: 4;
     width: 100%;
+    border: 1px solid #303030;
   }
   h2 {
     margin: 0 auto;
@@ -38,5 +50,71 @@
   }
   .contact {
     grid-column: span 4;
+  }
+  .banner {
+    position: fixed;
+    bottom: 11rem;
+    left: -20rem;
+    rotate: 30deg;
+    background-color: white;
+    font-size: 3rem;
+    flex-shrink: 0;
+    display: flex;
+    overflow: hidden;
+    gap: 1rem;
+    min-width: 100%;
+
+    animation: up linear both;
+    animation-timeline: view(block);
+    animation-range: cover 20% cover 100%;
+  }
+  .banner-content {
+    display: flex;
+    flex-direction: row;
+    flex-shrink: 0;
+    animation: scroll 40s linear infinite;
+    text-transform: uppercase;
+  }
+
+  @media only screen and (max-width: 900px) {
+    .banner {
+      rotate: 0deg;
+      bottom: 0;
+      left: 0;
+    }
+  }
+
+  @media only screen and (max-height: 920px) and (min-width: 900px) {
+    .banner {
+      rotate: 0deg;
+      bottom: 0;
+      left: 0;
+    }
+  }
+
+  @media only screen and (min-height: 1230px) {
+    .banner {
+      rotate: 0deg;
+      bottom: 0;
+      left: 0;
+    }
+  }
+
+  @keyframes scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-100% - 1rem));
+    }
+  }
+
+  @keyframes up {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(-130vh);
+    }
   }
 </style>
