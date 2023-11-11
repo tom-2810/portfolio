@@ -37,7 +37,7 @@
         height: 15rem;
         padding: 0.7rem;
         background-color: rgb(255, 234, 208);
-        border: 1px solid black;
+        border: 1px solid #303030;
         z-index: 1;
     }
     :is(a:hover, a:focus) img {
@@ -62,11 +62,11 @@
         grid-column: 1/3;
     }
     a > div > div:last-of-type {
-        border-right: 1px solid rgb(56, 56, 56);
+        border-right: 1px solid #303030;
         grid-column: 4;
     }
     a > div > div {
-        border-left: 1px solid rgb(56, 56, 56);
+        border-left: 1px solid #303030;
         padding: 1rem 0;
     }
     a > div span {
@@ -75,11 +75,11 @@
     li {
         transition: color, background-color 0.5s;
         color: white;
-        border-top: 1px solid rgb(56, 56, 56);
+        border-top: 1px solid #303030;
         font-size: 1.8rem;
     }
     li:last-of-type {
-        border-bottom: 1px solid rgb(56, 56, 56);
+        border-bottom: 1px solid #303030;
     }
     li:has(a:is(:hover, :focus)) {
         color: black;

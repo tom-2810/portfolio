@@ -31,12 +31,12 @@
     }
     ul > li {
         padding: 1rem 0 0 0;
-        border-left: 1px solid rgb(56, 56, 56);
+        border-left: 1px solid #303030;
         width: 100%;
         padding: 2rem 0 0 0;
     }
     ul > li:last-of-type {
-        border-right: 1px solid rgb(56, 56, 56);
+        border-right: 1px solid #303030;
     }
     a:is(:hover, :focus)::before {
         content: "{ ";
