@@ -29,7 +29,7 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     row-gap: 2rem;
-    max-width: 75rem;
+    max-width: 70rem;
     margin: 8vh auto;
     height: 80vh;
   }
