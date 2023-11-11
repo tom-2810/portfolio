@@ -57,7 +57,8 @@
     left: -20rem;
     rotate: 30deg;
     background-color: rgb(255, 0, 0);
-    font-size: 3rem;
+    border: 3px solid white;
+    font-size: 2.8rem;
     flex-shrink: 0;
     display: flex;
     overflow: hidden;
