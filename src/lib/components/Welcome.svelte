@@ -1,10 +1,11 @@
 <script>
   export let data;
+  import { fade, fly } from "svelte/transition";
 
   import Contact from "./Contact.svelte";
 </script>
 
-<section>
+<section in:fade={{ duration: 400, delay: 650 }}>
   <h1>{data.heading}</h1>
   <img src={data.image.url} alt="" />
   <h2>{data.name}</h2>
@@ -12,7 +13,7 @@
     <Contact />
   </div>
 
-  <div class="banner">
+  <div class="banner" in:fly={{ y: -200, duration: 600, delay: 700}}>
     <div class="banner-content">
       {data.banner} ! {data.banner} ! {data.banner} ! {data.banner} ! {data.banner}
       ! {data.banner} ! {data.banner} ! {data.banner} ! {data.banner}

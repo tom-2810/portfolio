@@ -1,16 +1,20 @@
+<script>
+    import { page } from '$app/stores';
+</script>
+
 <nav>
     <ul>
         <li>
-            <a href="#">home</a>
+            <a href="/" class:active="{$page.url.pathname == "/"}">home</a>
         </li>
         <li>
-            <a href="#">projects</a>
+            <a href="/projects" class:active="{$page.url.pathname.includes("/projects")}">projects</a>
         </li>
         <li>
-            <a href="#">blog</a>
+            <a href="/blog" class:active="{$page.url.pathname.includes("/blog")}">blog</a>
         </li>
         <li>
-            <a href="#">contact</a>
+            <a href="#contact">contact</a>
         </li>
     </ul>
 </nav>

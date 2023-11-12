@@ -1,5 +1,5 @@
 <script>
-  import ProjectList from "../../components/ProjectList.svelte";
+  import ProjectList from "$lib/components/ProjectList.svelte";
 
   /** @type {import("@prismicio/client").Content.FeaturedProjectsSlice} */
   export let slice;
@@ -17,7 +17,7 @@
 
   <ProjectList items={slice.items} />
 
-  <a href="#">projects overview</a>
+  <a href="/projects">projects overview</a>
 </section>
 
 <style>

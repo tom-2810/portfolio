@@ -2,10 +2,12 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 body {
     background-color: rgb(32, 32, 32);
+    overflow-x: hidden;
 }
 
 h1,
@@ -62,6 +64,18 @@ a {
 
 .highlight {
     color: rgba(255, 255, 255, 0.3);
+}
+
+a.active {
+    font-weight: 600;
+}
+
+a.active::before {
+    content: "{ ";
+}
+
+a.active::after {
+    content: " }";
 }
 
 @keyframes fadein {
