@@ -37,7 +37,7 @@
     background-color: rgb(32, 32, 32);
     background-image: url(./Gradient.jpg);
     background-size: cover;
-    z-index: 1;
+    z-index: 2;
   }
   main {
     display: flex;

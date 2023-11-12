@@ -15,10 +15,12 @@
   <div class="banner">
     <div class="banner-content">
       {data.banner} ! {data.banner} ! {data.banner} ! {data.banner} ! {data.banner}
+      ! {data.banner} ! {data.banner} ! {data.banner} ! {data.banner}
       ! {data.banner} !
     </div>
     <div class="banner-content">
       {data.banner} ! {data.banner} ! {data.banner} ! {data.banner} ! {data.banner}
+      ! {data.banner} ! {data.banner} ! {data.banner} ! {data.banner}
       ! {data.banner} !
     </div>
   </div>
@@ -52,22 +54,26 @@
     grid-column: span 4;
   }
   .banner {
-    position: fixed;
-    bottom: 8.5rem;
-    left: -20rem;
+    position: absolute;
+    bottom: 8.3rem;
+    left: -26rem;
     rotate: 30deg;
     background-color: rgb(255, 0, 0);
-    border: 3px solid white;
+    border: 2px solid black;
     font-size: 2.8rem;
     flex-shrink: 0;
     display: flex;
     overflow: hidden;
     gap: 1rem;
-    min-width: 100%;
+    min-width: 140%;
+  }
 
-    animation: up linear both;
-    animation-timeline: view(block);
-    animation-range: cover 20% cover 100%;
+  @supports (animation-timeline: view(block)) {
+    .banner {
+      animation: up linear both;
+      animation-timeline: view(block);
+      animation-range: cover 20% cover 100%;
+    }
   }
   .banner-content {
     display: flex;
@@ -80,7 +86,7 @@
 
   @media only screen and (max-width: 960px) {
     .banner {
-      bottom: 10rem;
+      bottom: 12rem;
     }
   }
 
@@ -119,9 +125,11 @@
 
   @keyframes up {
     from {
+      position: fixed;
       transform: translateY(0);
     }
     to {
+      position: fixed;
       transform: translateY(-130vh);
     }
   }
