@@ -1,8 +1,14 @@
 <script>
   import ProjectList from "$lib/components/ProjectList.svelte";
 
+
+  // import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  
   /** @type {import("@prismicio/client").Content.FeaturedProjectsSlice} */
   export let slice;
+  
+  
 </script>
 
 <section

@@ -7,6 +7,34 @@
   export let data;
 
   setContext("contact-context", data);
+
+  import { gsap } from "gsap/dist/gsap";
+
+  import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  onMount(() => {
+    document.querySelectorAll(".intro").forEach((intro) => {
+      let tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: intro,
+          start: "top bottom",
+          end: "40% bottom",
+          scrub: true,
+          markers: true,
+        },
+      });
+
+      tl.set(intro, {
+        x: -100
+      })
+
+      tl.to(intro, {
+        x: 0,
+      });
+    });
+  });
 </script>
 
 <div class="background">
@@ -17,16 +45,16 @@
     <div />
   </div>
 </div>
-  <header>
-    <Navigation />
-  </header>
+<header>
+  <Navigation />
+</header>
 
-  <main>
-    <slot />
-  </main>
-  <footer>
-    <Footer />
-  </footer>
+<main>
+  <slot />
+</main>
+<footer>
+  <Footer />
+</footer>
 
 <style>
   header {
