@@ -1,14 +1,65 @@
 <script>
   import ProjectList from "$lib/components/ProjectList.svelte";
 
-
-  // import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-  
   /** @type {import("@prismicio/client").Content.FeaturedProjectsSlice} */
   export let slice;
-  
-  
+
+  import { gsap } from "gsap/dist/gsap";
+
+  import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+  import { onDestroy, onMount } from "svelte";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  onDestroy(() => {
+    ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+  });
+
+  onMount(() => {
+    document.querySelectorAll(".intro").forEach((intro) => {
+      let tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: intro,
+          start: "-5% bottom",
+          end: "75% bottom",
+          scrub: true,
+          markers: false,
+        },
+      });
+
+      tl.set(intro, {
+        y: 200,
+        scale: 0.5,
+      });
+
+      tl.to(intro, {
+        y: 0,
+        scale: 1,
+      });
+    });
+
+    document.querySelectorAll("main h2").forEach((intro_heading) => {
+      let tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: intro_heading,
+          start: "-300% center",
+          end: "-20% center",
+          scrub: true,
+          markers: false,
+        },
+      });
+
+      tl.set(intro_heading, {
+        y: -600,
+        opacity: 0,
+      });
+
+      tl.to(intro_heading, {
+        y: 0,
+        opacity: 1,
+      });
+    });
+  });
 </script>
 
 <section

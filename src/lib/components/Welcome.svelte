@@ -59,9 +59,9 @@
     bottom: 8.3rem;
     left: -26rem;
     rotate: 30deg;
-    background-color: rgb(255, 0, 0);
-    border: 2px solid black;
-    font-size: 2.8rem;
+    background-color: black;
+    border: 3px solid red;
+    font-size: 2.6rem;
     flex-shrink: 0;
     display: flex;
     overflow: hidden;

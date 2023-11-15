@@ -1,88 +1,12 @@
 <script>
   import Footer from "../lib/components/Footer.svelte";
   import Navigation from "../lib/components/Navigation.svelte";
-  import { onMount, setContext } from "svelte";
+  import { onDestroy, onMount, setContext } from "svelte";
   import global from "../global.css";
 
   export let data;
 
   setContext("contact-context", data);
-
-  import { gsap } from "gsap/dist/gsap";
-
-  import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-
-  gsap.registerPlugin(ScrollTrigger);
-
-  onMount(() => {
-    document.querySelectorAll(".intro").forEach((intro) => {
-      let tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: intro,
-          start: "top bottom",
-          end: "75% bottom",
-          scrub: true,
-          markers: true,
-        },
-      });
-
-      tl.set(intro, {
-        y: 200,
-        scale: 0.5,
-      });
-
-      tl.to(intro, {
-        y: 0,
-        scale: 1,
-      });
-    });
-
-    document.querySelectorAll("main h2").forEach((intro_heading) => {
-      let tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: intro_heading,
-          start: "-300% center",
-          end: "-20% center",
-          scrub: true,
-          markers: true,
-        },
-      });
-
-      tl.set(intro_heading, {
-        y: -600,
-        opacity: 0,
-      });
-
-      tl.to(intro_heading, {
-        y: 0,
-        opacity: 1,
-      });
-    });
-
-    document.querySelectorAll(".projects .item").forEach((project) => {
-      let tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: project,
-          start: "top bottom",
-          end: "75% bottom",
-          scrub: true,
-          markers: true,
-        },
-      });
-
-      tl.set(project, {
-        y: 200,
-        scale: 0.5,
-      });
-
-      tl.to(project, {
-        y: 0,
-        scale: 1,
-      });
-    });
-
-    
-  });
 </script>
 
 <div class="background">

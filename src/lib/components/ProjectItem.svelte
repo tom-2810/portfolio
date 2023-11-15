@@ -2,6 +2,43 @@
   export let item;
 
   let project = item.project ? item.project : item;
+
+  import { gsap } from "gsap/dist/gsap";
+
+  import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+  import { onDestroy, onMount } from "svelte";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  onDestroy(() => {
+    ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+  });
+
+  onMount(() => {
+    document.querySelectorAll(".projects .item").forEach((project) => {
+      let tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: project,
+          start: "-5% bottom",
+          end: "75% bottom",
+          scrub: true,
+          markers: false,
+        },
+      });
+
+      tl.set(project, {
+        y: 200,
+        scale: 0.5,
+      });
+
+      tl.to(project, {
+        y: 0,
+        scale: 1,
+      });
+    });
+  });
+
+
 </script>
 
 <div class="project">
@@ -60,7 +97,7 @@
   }
   .project .title {
     opacity: 0;
-    transition: .3s;
+    transition: 0.3s;
   }
   .project:has(a:hover) .title {
     opacity: 1;
@@ -69,6 +106,7 @@
     text-decoration: underline;
   }
   section {
+    transition: .05s;
     filter: saturate(0);
   }
   section:has(a:is(:hover, :focus)) {

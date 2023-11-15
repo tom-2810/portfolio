@@ -16,6 +16,6 @@
     grid-template-columns: repeat(4, 1fr);
     max-width: 70rem;
     margin: 0 auto;
-    row-gap: 7rem;
+    row-gap: 13rem;
   }
 </style>
