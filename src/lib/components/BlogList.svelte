@@ -1,10 +1,10 @@
 <script>
-    export let items;
-    import BlogItem from "./BlogItem.svelte";
+  export let items;
+  import BlogItem from "./BlogItem.svelte";
 </script>
 
 <ul>
-    {#each items as item}
-        <BlogItem blog={item.blog} />
-    {/each}
+  {#each items as item}
+    <BlogItem {item} />
+  {/each}
 </ul>

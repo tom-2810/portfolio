@@ -75,7 +75,7 @@
 
   <BlogList items={slice.items} />
 
-  <a href="#">blog overview</a>
+  <a href="/blog">blog overview</a>
 </section>
 
 <style>

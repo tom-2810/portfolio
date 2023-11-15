@@ -6,7 +6,7 @@
 </script>
 
 <section in:fade={{ duration: 500, delay: 650 }}>
-  <h2>PROJECTS</h2>
+  <h2>BLOG</h2>
 
   <BlogList items={data.blogs} />
 </section>
