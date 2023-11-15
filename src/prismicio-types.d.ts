@@ -114,6 +114,7 @@ export type ContactDocument<Lang extends string = string> =
   >;
 
 type HomepageDocumentDataSlicesSlice =
+  | AboutMeSlice
   | FeaturedProjectsSlice
   | FeaturedBlogsSlice;
 
@@ -274,6 +275,51 @@ export type AllDocumentTypes =
   | ProjectDocument;
 
 /**
+ * Primary content in *AboutMe → Primary*
+ */
+export interface AboutMeSliceDefaultPrimary {
+  /**
+   * text field in *AboutMe → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_me.primary.text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  text: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for AboutMe Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type AboutMeSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<AboutMeSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *AboutMe*
+ */
+type AboutMeSliceVariation = AboutMeSliceDefault;
+
+/**
+ * AboutMe Shared Slice
+ *
+ * - **API ID**: `about_me`
+ * - **Description**: AboutMe
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type AboutMeSlice = prismic.SharedSlice<
+  "about_me",
+  AboutMeSliceVariation
+>;
+
+/**
  * Primary content in *FeaturedBlogs → Primary*
  */
 export interface FeaturedBlogsSliceDefaultPrimary {
@@ -414,6 +460,10 @@ declare module "@prismicio/client" {
       ProjectDocument,
       ProjectDocumentData,
       AllDocumentTypes,
+      AboutMeSlice,
+      AboutMeSliceDefaultPrimary,
+      AboutMeSliceVariation,
+      AboutMeSliceDefault,
       FeaturedBlogsSlice,
       FeaturedBlogsSliceDefaultPrimary,
       FeaturedBlogsSliceDefaultItem,

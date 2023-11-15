@@ -19,7 +19,7 @@
       let tl = gsap.timeline({
         scrollTrigger: {
           trigger: project,
-          start: "-5% bottom",
+          start: "-2% bottom",
           end: "75% bottom",
           scrub: true,
           markers: false,
@@ -27,13 +27,13 @@
       });
 
       tl.set(project, {
-        y: 200,
-        scale: 0.5,
+        y: 800,
+        // scale: 0.2,
       });
 
       tl.to(project, {
         y: 0,
-        scale: 1,
+        // scale: 1,
       });
     });
   });
@@ -69,8 +69,12 @@
   .project {
     grid-column: 2/4;
   }
+  .project .item {
+    transition: .03s;
+  }
   .project .title {
     position: absolute;
+    width: 100%;
     left: 0;
   }
   .project .title {
@@ -116,6 +120,13 @@
   img {
     width: 100%;
   }
+
+  @media only screen and (max-width: 800px) {
+    .project {
+      grid-column: 1/5;
+    }
+  }
+
   @keyframes reveal {
     0% {
       transform: translateY(120%);

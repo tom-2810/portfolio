@@ -20,7 +20,7 @@
       let tl = gsap.timeline({
         scrollTrigger: {
           trigger: intro,
-          start: "-5% bottom",
+          start: "-2% bottom",
           end: "75% bottom",
           scrub: true,
           markers: false,
@@ -28,8 +28,8 @@
       });
 
       tl.set(intro, {
-        y: 200,
-        scale: 0.5,
+        y: -200,
+        scale: 0.3,
       });
 
       tl.to(intro, {
@@ -42,8 +42,8 @@
       let tl = gsap.timeline({
         scrollTrigger: {
           trigger: intro_heading,
-          start: "-300% center",
-          end: "-20% center",
+          start: "-450 center",
+          end: "-30 center",
           scrub: true,
           markers: false,
         },

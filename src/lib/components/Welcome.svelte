@@ -95,7 +95,7 @@
     .banner {
       rotate: 0deg;
       bottom: 0;
-      left: 0;
+      left: -.5rem;
     }
   }
 
@@ -103,7 +103,7 @@
     .banner {
       rotate: 0deg;
       bottom: 0;
-      left: 0;
+      left: -.5rem;
     }
   }
 
@@ -111,7 +111,7 @@
     .banner {
       rotate: 0deg;
       bottom: 0;
-      left: 0;
+      left: -.5rem;
     }
   }
 

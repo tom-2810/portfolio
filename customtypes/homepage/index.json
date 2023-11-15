@@ -40,6 +40,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "about_me": {
+              "type": "SharedSlice"
+            },
             "featured_projects": {
               "type": "SharedSlice"
             },

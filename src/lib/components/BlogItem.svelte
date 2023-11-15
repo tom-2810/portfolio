@@ -21,7 +21,7 @@
     />
     <div>
       <div>
-        <h4>{blog.data.title}</h4>
+        <h3>{blog.data.title}</h3>
       </div>
       <div />
       <div>
@@ -87,10 +87,10 @@
     transition: 0s;
     background-color: rgb(255, 255, 255);
   }
-  h4 {
+  h3 {
     transition: 0.5s;
   }
-  a:is(:hover, :focus) h4 {
+  a:is(:hover, :focus) h3 {
     transform: translateX(8px);
     transition: 0s;
   }

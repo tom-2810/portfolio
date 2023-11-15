@@ -8,18 +8,31 @@
             <a href="/" class:active="{$page.url.pathname == "/"}">home</a>
         </li>
         <li>
-            <a href="/projects" class:active="{$page.url.pathname.includes("/projects")}">projects</a>
+            <a class="desktop" href="/projects" class:active="{$page.url.pathname.includes("/projects")}">projects</a>
         </li>
         <li>
-            <a href="/blog" class:active="{$page.url.pathname.includes("/blog")}">blog</a>
+            <a class="desktop" href="/blog" class:active="{$page.url.pathname.includes("/blog")}">blog</a>
         </li>
         <li>
-            <a href="#contact">contact</a>
+            <a class="desktop" href="#contact">contact</a>
+        </li>
+        
+        <li>
+            <p class="mobile">test</p>
         </li>
     </ul>
 </nav>
 
 <style>
+    .desktop {
+        display: block;
+    }
+    .mobile {
+        display: none;
+    }
+    ul li:last-child {
+        display: none;
+    }
     nav {
         width: 100%;
         max-width: 70rem;
@@ -32,6 +45,7 @@
         grid-template-columns: repeat(4, 1fr);
         width: 100%;
         list-style: none;
+        color: white;
     }
     ul > li {
         padding: 1rem 0 0 0;
@@ -48,4 +62,18 @@
     a:is(:hover, :focus)::after {
         content: " }";
     }
+    @media only screen and (max-width: 800px) {
+    .desktop {
+      display: none;
+    }
+    .mobile {
+        display: block;
+    }
+    ul :nth-child(2) {
+        display: none;
+    }
+    ul li:last-child {
+        display: block;
+    }
+  }
 </style>

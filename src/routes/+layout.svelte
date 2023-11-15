@@ -34,8 +34,8 @@
     top: 0;
     width: 100%;
     border-bottom: 1px solid #303030;
-    background-color: rgb(32, 32, 32);
-    background-image: url(/Gradient.jpg);
+    background-color: rgb(0, 0, 0);
+    /* background-image: url(/Gradient.jpg); */
     background-size: cover;
     z-index: 2;
   }
@@ -46,14 +46,14 @@
     margin: 4rem 0 40rem;
   }
   footer {
-    margin-bottom: 40vh;
+    margin-bottom: 5rem;
   }
   .background {
     position: fixed;
     top: 0;
     height: 100vh;
     width: 100%;
-    background-image: url(/Gradient.jpg);
+    /* background-image: url(/Gradient.jpg); */
     background-size: cover;
 
     z-index: -1;
