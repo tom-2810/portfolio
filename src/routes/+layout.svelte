@@ -20,20 +20,68 @@
         scrollTrigger: {
           trigger: intro,
           start: "top bottom",
-          end: "40% bottom",
+          end: "75% bottom",
           scrub: true,
           markers: true,
         },
       });
 
       tl.set(intro, {
-        x: -100
-      })
+        y: 200,
+        scale: 0.5,
+      });
 
       tl.to(intro, {
-        x: 0,
+        y: 0,
+        scale: 1,
       });
     });
+
+    document.querySelectorAll("main h2").forEach((intro_heading) => {
+      let tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: intro_heading,
+          start: "-300% center",
+          end: "-20% center",
+          scrub: true,
+          markers: true,
+        },
+      });
+
+      tl.set(intro_heading, {
+        y: -600,
+        opacity: 0,
+      });
+
+      tl.to(intro_heading, {
+        y: 0,
+        opacity: 1,
+      });
+    });
+
+    document.querySelectorAll(".projects .item").forEach((project) => {
+      let tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: project,
+          start: "top bottom",
+          end: "75% bottom",
+          scrub: true,
+          markers: true,
+        },
+      });
+
+      tl.set(project, {
+        y: 200,
+        scale: 0.5,
+      });
+
+      tl.to(project, {
+        y: 0,
+        scale: 1,
+      });
+    });
+
+    
   });
 </script>
 
@@ -70,7 +118,7 @@
   main {
     display: flex;
     flex-direction: column;
-    gap: 30rem;
+    gap: 20rem;
     margin: 4rem 0 40rem;
   }
   footer {

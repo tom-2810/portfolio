@@ -4,7 +4,7 @@
   import { fade } from "svelte/transition";
 </script>
 
-<ul class="items" in:fade={{ duration: 500, delay: 1000 }}>
+<ul class="projects" in:fade={{ duration: 500, delay: 1000 }}>
   {#each items as item}
     <ProjectItem {item} />
   {/each}
@@ -12,10 +12,10 @@
 
 <style>
   ul {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     max-width: 70rem;
     margin: 0 auto;
-    row-gap: 13rem;
+    row-gap: 7rem;
   }
 </style>
