@@ -3,9 +3,11 @@
 import AboutMe from "./AboutMe/index.svelte";
 import FeaturedBlogs from "./FeaturedBlogs/index.svelte";
 import FeaturedProjects from "./FeaturedProjects/index.svelte";
+import TextBlock from "./TextBlock/index.svelte";
 
 export const components = {
   about_me: AboutMe,
   featured_blogs: FeaturedBlogs,
   featured_projects: FeaturedProjects,
+  text_block: TextBlock,
 };

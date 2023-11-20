@@ -40,6 +40,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "text_block": {
+              "type": "SharedSlice"
+            },
             "about_me": {
               "type": "SharedSlice"
             },

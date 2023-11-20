@@ -42,7 +42,7 @@
   main {
     display: flex;
     flex-direction: column;
-    gap: 20rem;
+    gap: 50rem;
     margin: 4rem 0 40rem;
   }
   footer {
