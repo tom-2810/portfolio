@@ -7,9 +7,9 @@
 
 <section>
   <h1 in:fade={{ duration: 1000, delay: 1500 }}>{data.heading}</h1>
-  <h2 in:fly={{ y: -550, duration: 1300, delay: 200 }}>{data.name}</h2>
+  <h2 in:fly={{ y: -550, duration: 1300, delay: 150 }}>{data.name}</h2>
   <img in:fly={{ y: -550, duration: 1300 }} src={data.image.url} alt="" />
-  <a in:fly={{ y: 100, duration: 1000, delay: 2300 }} href="#contact" class="banner">
+  <a in:fly={{ y: 100, duration: 1000, delay: 1500 }} href="#contact" class="banner">
     <div class="banner-content">
       {data.banner}
       {data.banner}

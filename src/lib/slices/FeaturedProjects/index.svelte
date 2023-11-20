@@ -7,13 +7,9 @@
   import { gsap } from "gsap/dist/gsap";
 
   import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-  import { onDestroy, onMount } from "svelte";
+  import { onMount } from "svelte";
 
   gsap.registerPlugin(ScrollTrigger);
-
-  onDestroy(() => {
-    ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-  });
 
   onMount(() => {
     document.querySelectorAll(".intro").forEach((intro) => {
@@ -35,26 +31,6 @@
       tl.to(intro, {
         y: 0,
         scale: 1,
-      });
-    });
-
-    document.querySelectorAll("main h2").forEach((intro_heading) => {
-      let tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: intro_heading,
-          start: "-800 center",
-          end: "bottom center",
-          scrub: true,
-          markers: false,
-        },
-      });
-
-      tl.set(intro_heading, {
-        opacity: 0,
-      });
-
-      tl.to(intro_heading, {
-        opacity: 1,
       });
     });
   });

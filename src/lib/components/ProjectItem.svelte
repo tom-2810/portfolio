@@ -22,7 +22,7 @@
       let tl = gsap.timeline({
         scrollTrigger: {
           trigger: project,
-          start: "70% bottom",
+          start: "60% bottom",
           scrub: false,
           markers: false,
         },
@@ -31,11 +31,13 @@
       tl.set(project, {
         y: 300,
         opacity: 0,
+        scale: .9,
       });
 
       tl.to(project, {
         y: 0,
         opacity: 1,
+        scale: 1,
       });
     });
   });
