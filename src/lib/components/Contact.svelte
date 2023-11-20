@@ -17,20 +17,31 @@
 </div>
 
 <style>
+  @import url("https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@600;700&display=swap");
+
   .contact {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     max-width: 70rem;
+    width: 100%;
     margin: 0 auto;
+    margin-top: auto;
     color: white;
+    font-size: 1.15rem;
+    font-family: "Darker Grotesque", sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 90%;
+    letter-spacing: -0.3px;
   }
   p {
     text-wrap: balance;
+    max-width: 14rem;
   }
   ul {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 6px;
     list-style: none;
     grid-column: 4;
   }
@@ -40,6 +51,16 @@
     justify-content: space-between;
   }
   li::after {
-    content: "->";
+    content: url("/arrow.svg");
+  }
+
+  @media only screen and (max-width: 700px) {
+    .contact {
+      display: flex;
+      flex-direction: column;
+      margin-left: 25%;
+      width: unset;
+      padding: 0 8px;
+    }
   }
 </style>

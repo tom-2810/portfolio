@@ -42,20 +42,18 @@
       let tl = gsap.timeline({
         scrollTrigger: {
           trigger: intro_heading,
-          start: "-450 center",
-          end: "-30 center",
+          start: "-800 center",
+          end: "bottom center",
           scrub: true,
           markers: false,
         },
       });
 
       tl.set(intro_heading, {
-        y: -600,
         opacity: 0,
       });
 
       tl.to(intro_heading, {
-        y: 0,
         opacity: 1,
       });
     });

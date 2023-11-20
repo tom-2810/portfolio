@@ -43,6 +43,7 @@
     ul {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
+        border-right: 1px solid #303030;
         width: 100%;
         list-style: none;
         color: white;
@@ -71,6 +72,9 @@
     }
     ul :nth-child(2) {
         display: none;
+    }
+    li {
+        font-size: 1.3rem;
     }
     ul li:last-child {
         display: block;

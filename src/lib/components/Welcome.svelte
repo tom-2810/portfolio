@@ -3,78 +3,111 @@
   import { fade, fly } from "svelte/transition";
 
   import Contact from "./Contact.svelte";
+
+  import { gsap } from "gsap/dist/gsap";
+
+  import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+  import { onDestroy, onMount } from "svelte";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  onDestroy(() => {
+    ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+  });
+
+  onMount(() => {
+    let tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".banner",
+          start: "5% center",
+          end: "170% center",
+          scrub: true,
+          markers: false,
+        },
+      });
+
+      tl.to(".banner", {
+        top: 200,
+      });
+  });
+
 </script>
 
-<section in:fade={{ duration: 400, delay: 650 }}>
+<section>
   <h1>{data.heading}</h1>
-  <img src={data.image.url} alt="" />
   <h2>{data.name}</h2>
-  <div class="contact">
-    <Contact />
-  </div>
-
-  <div class="banner" in:fly={{ y: -200, duration: 600, delay: 700}}>
+  <img src={data.image.url} alt="" />
+  <div class="banner">
     <div class="banner-content">
       {data.banner} ! {data.banner} ! {data.banner} ! {data.banner} ! {data.banner}
-      ! {data.banner} ! {data.banner} ! {data.banner} ! {data.banner}
-      ! {data.banner} !
+      ! {data.banner} ! {data.banner} !
     </div>
     <div class="banner-content">
       {data.banner} ! {data.banner} ! {data.banner} ! {data.banner} ! {data.banner}
-      ! {data.banner} ! {data.banner} ! {data.banner} ! {data.banner}
-      ! {data.banner} !
+      ! {data.banner} ! {data.banner} !
     </div>
   </div>
+  <Contact />
 </section>
 
 <style>
+  @import url("https://fonts.googleapis.com/css2?family=Noto+Serif+Display:wght@500&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@600;700&display=swap");
+
   section {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    row-gap: 2rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
     max-width: 70rem;
-    margin: 8vh auto;
-    height: 80vh;
+    width: 100%;
+    margin: 4rem auto;
+    min-height: max-content;
+    max-height: 42rem;
   }
   h1 {
-    grid-column: span 2;
-    height: fit-content;
-    text-wrap: balance;
-  }
-  img {
-    grid-column: 4;
-    width: 100%;
-    border: 1px solid #303030;
+    width: 10rem;
+    font-size: 1.15rem;
+    font-family: "Darker Grotesque", sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 90%;
+    letter-spacing: -0.4px;
   }
   h2 {
-    margin: 0 auto;
-    grid-column: span 4;
-    height: fit-content;
+    all: unset;
+    font-size: clamp(2rem, 14vw, 9.4rem);
+    width: min-content;
+    color: white;
+    font-family: "Noto Serif Display", serif;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 85%;
+    letter-spacing: 3px;
+    text-transform: uppercase;
   }
-  .contact {
-    grid-column: span 4;
+  img {
+    width: 50%;
+    margin-left: auto;
+    transform: translateY(-2.3rem);
+    margin-bottom: 7rem;
+    filter: saturate(0);
+    z-index: -1;
   }
   .banner {
     position: absolute;
-    bottom: 8.3rem;
-    left: -26rem;
-    rotate: 30deg;
-    background-color: black;
-    border: 3px solid red;
-    font-size: 2.6rem;
+    bottom: 7rem;
+    left: -30rem;
+    rotate: -5deg;
+    background-color: white;
+    font-size: 2.5rem;
     flex-shrink: 0;
     display: flex;
     overflow: hidden;
     gap: 1rem;
-    min-width: 140%;
-  }
-
-  @supports (animation-timeline: view(block)) {
-    .banner {
-      animation: up linear both;
-      animation-timeline: view(block);
-      animation-range: cover 20% cover 100%;
-    }
+    height: 3.6rem;
+    min-width: 200%;
+    transition: .1s;
   }
   .banner-content {
     display: flex;
@@ -82,36 +115,34 @@
     flex-shrink: 0;
     animation: scroll 40s linear infinite;
     text-transform: uppercase;
-    color: white;
+    font-family: "Darker Grotesque", sans-serif;
+    font-weight: 700;
+    color: black;
   }
-
-  @media only screen and (max-width: 960px) {
+  @media only screen and (max-width: 850px) {
     .banner {
       bottom: 12rem;
     }
   }
 
-  @media only screen and (max-width: 900px) {
+  @media only screen and (max-width: 700px) {
+    h1,
+    h2 {
+      margin-left: 8px;
+    }
+    img {
+      width: 100%;
+      transform: translateY(0);
+      margin-top: 2rem;
+    }
     .banner {
-      rotate: 0deg;
-      bottom: 0;
-      left: -.5rem;
+      left: -1rem;
+      bottom: 6rem;
     }
   }
-
-  @media only screen and (max-height: 780px) and (min-width: 750px) {
+  @media only screen and (max-width: 550px) {
     .banner {
-      rotate: 0deg;
-      bottom: 0;
-      left: -.5rem;
-    }
-  }
-
-  @media only screen and (min-height: 1030px) {
-    .banner {
-      rotate: 0deg;
-      bottom: 0;
-      left: -.5rem;
+      bottom: 12rem;
     }
   }
 
@@ -121,17 +152,6 @@
     }
     to {
       transform: translateX(calc(-100% - 1rem));
-    }
-  }
-
-  @keyframes up {
-    from {
-      position: fixed;
-      transform: translateY(0);
-    }
-    to {
-      position: fixed;
-      transform: translateY(-130vh);
     }
   }
 </style>

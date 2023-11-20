@@ -35,7 +35,7 @@
     width: 100%;
     border-bottom: 1px solid #303030;
     background-color: rgb(0, 0, 0);
-    /* background-image: url(/Gradient.jpg); */
+    background-image: url(/Gradient.jpg);
     background-size: cover;
     z-index: 2;
   }
@@ -53,7 +53,7 @@
     top: 0;
     height: 100vh;
     width: 100%;
-    /* background-image: url(/Gradient.jpg); */
+    background-image: url(/Gradient.jpg);
     background-size: cover;
 
     z-index: -1;

@@ -19,7 +19,7 @@
       let tl = gsap.timeline({
         scrollTrigger: {
           trigger: project,
-          start: "-2% bottom",
+          start: "-5% bottom",
           end: "75% bottom",
           scrub: true,
           markers: false,
@@ -27,13 +27,13 @@
       });
 
       tl.set(project, {
-        y: 800,
-        // scale: 0.2,
+        y: 120,
+        opacity: 0,
       });
 
       tl.to(project, {
         y: 0,
-        // scale: 1,
+        opacity: 1,
       });
     });
   });
@@ -70,12 +70,14 @@
     grid-column: 2/4;
   }
   .project .item {
-    transition: .03s;
+    transition: .04s;
   }
   .project .title {
     position: absolute;
     width: 100%;
     left: 0;
+    pointer-events: none;
+    z-index: 1;
   }
   .project .title {
     position: absolute;
