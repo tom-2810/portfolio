@@ -1,10 +1,11 @@
 <script>
   import { getContext } from "svelte";
+  import { fade, fly } from "svelte/transition";
 
   const contact = getContext("contact-context");
 </script>
 
-<div class="contact">
+<div class="contact" in:fade={{ duration: 1000, delay: 1500 }}>
   <p class="status">{contact.status[0].text}</p>
 
   <ul>
@@ -58,9 +59,10 @@
     .contact {
       display: flex;
       flex-direction: column;
+      gap: 1rem;
       margin-left: 25%;
       width: unset;
-      padding: 0 8px;
+      padding: 0 4px;
     }
   }
 </style>

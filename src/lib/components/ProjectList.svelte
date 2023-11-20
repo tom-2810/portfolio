@@ -17,5 +17,6 @@
     max-width: 70rem;
     margin: 0 auto;
     row-gap: 3rem;
+    overflow-y: hidden;
   }
 </style>

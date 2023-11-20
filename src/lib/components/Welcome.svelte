@@ -3,50 +3,34 @@
   import { fade, fly } from "svelte/transition";
 
   import Contact from "./Contact.svelte";
-
-  import { gsap } from "gsap/dist/gsap";
-
-  import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-  import { onDestroy, onMount } from "svelte";
-
-  gsap.registerPlugin(ScrollTrigger);
-
-  onDestroy(() => {
-    ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-  });
-
-  onMount(() => {
-    let tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: ".banner",
-          start: "5% center",
-          end: "170% center",
-          scrub: true,
-          markers: false,
-        },
-      });
-
-      tl.to(".banner", {
-        top: 200,
-      });
-  });
-
 </script>
 
 <section>
-  <h1>{data.heading}</h1>
-  <h2>{data.name}</h2>
-  <img src={data.image.url} alt="" />
-  <div class="banner">
+  <h1 in:fade={{ duration: 1000, delay: 1500 }}>{data.heading}</h1>
+  <h2 in:fly={{ y: -550, duration: 1300, delay: 200 }}>{data.name}</h2>
+  <img in:fly={{ y: -550, duration: 1300 }} src={data.image.url} alt="" />
+  <a in:fly={{ y: 100, duration: 1000, delay: 2300 }} href="#contact" class="banner">
     <div class="banner-content">
-      {data.banner} ! {data.banner} ! {data.banner} ! {data.banner} ! {data.banner}
-      ! {data.banner} ! {data.banner} !
+      {data.banner}
+      {data.banner}
+      {data.banner}
+      {data.banner}
+      {data.banner}
+      {data.banner}
+      {data.banner}
+      {data.banner}
     </div>
     <div class="banner-content">
-      {data.banner} ! {data.banner} ! {data.banner} ! {data.banner} ! {data.banner}
-      ! {data.banner} ! {data.banner} !
+      {data.banner}
+      {data.banner}
+      {data.banner}
+      {data.banner}
+      {data.banner}
+      {data.banner}
+      {data.banner}
+      {data.banner}
     </div>
-  </div>
+  </a>
   <Contact />
 </section>
 
@@ -55,7 +39,6 @@
   @import url("https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@600;700&display=swap");
 
   section {
-    position: relative;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
@@ -89,60 +72,45 @@
   img {
     width: 50%;
     margin-left: auto;
-    transform: translateY(-2.3rem);
-    margin-bottom: 7rem;
+    transform: translateY(-2.5rem);
+    margin-bottom: 2rem;
     filter: saturate(0);
     z-index: -1;
   }
+
   .banner {
-    position: absolute;
-    bottom: 7rem;
-    left: -30rem;
-    rotate: -5deg;
+    position: fixed;
+    bottom: 0;
+    left: 0;
     background-color: white;
-    font-size: 2.5rem;
+    font-size: 2rem;
     flex-shrink: 0;
     display: flex;
     overflow: hidden;
-    gap: 1rem;
-    height: 3.6rem;
-    min-width: 200%;
-    transition: .1s;
+    gap: .5rem;
+    z-index: 2;
   }
   .banner-content {
+    position: relative;
+    top: -2px;
     display: flex;
     flex-direction: row;
     flex-shrink: 0;
-    animation: scroll 40s linear infinite;
+    animation: scroll 30s linear infinite;
     text-transform: uppercase;
     font-family: "Darker Grotesque", sans-serif;
     font-weight: 700;
     color: black;
   }
-  @media only screen and (max-width: 850px) {
-    .banner {
-      bottom: 12rem;
-    }
-  }
 
   @media only screen and (max-width: 700px) {
     h1,
     h2 {
-      margin-left: 8px;
+      margin-left: 4px;
     }
     img {
       width: 100%;
       transform: translateY(0);
-      margin-top: 2rem;
-    }
-    .banner {
-      left: -1rem;
-      bottom: 6rem;
-    }
-  }
-  @media only screen and (max-width: 550px) {
-    .banner {
-      bottom: 12rem;
     }
   }
 

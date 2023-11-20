@@ -16,18 +16,20 @@
 
   onMount(() => {
     document.querySelectorAll(".projects .item").forEach((project) => {
+
+      project.style.opacity = 0;
+
       let tl = gsap.timeline({
         scrollTrigger: {
           trigger: project,
-          start: "-5% bottom",
-          end: "75% bottom",
-          scrub: true,
+          start: "70% bottom",
+          scrub: false,
           markers: false,
         },
       });
 
       tl.set(project, {
-        y: 120,
+        y: 300,
         opacity: 0,
       });
 
