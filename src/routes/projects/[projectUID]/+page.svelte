@@ -22,6 +22,7 @@
         );
 
         const banners = document.querySelectorAll(".banner");
+        const project = document.querySelector(".project");
 
         for (let i = 0; i < banners.length; i++) {
             console.log(banners[i]);
@@ -39,6 +40,20 @@
                 );
             }
         }
+        let tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: project,
+                start: `50% ${project.offsetTop + project.offsetHeight / 2 + 55}`,
+                end: `50% top`,
+                scrub: 1,
+                markers: true,
+            },
+        });
+
+        tl.fromTo(project, {
+            y: 94,
+        },
+        {y: -250});
     });
 </script>
 
@@ -128,7 +143,7 @@
         font-size: 15rem;
         font-weight: 900;
         align-items: center;
-        opacity: 0.08;
+        opacity: 0.05;
     }
     .banner:nth-child(odd) .banner-content {
         animation-direction: reverse;
