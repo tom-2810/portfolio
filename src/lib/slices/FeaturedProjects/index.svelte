@@ -18,7 +18,7 @@
           trigger: intro,
           start: "-2% bottom",
           end: "75% bottom",
-          scrub: true,
+          scrub: 1,
           markers: false,
         },
       });

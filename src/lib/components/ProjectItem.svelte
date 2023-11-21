@@ -20,15 +20,15 @@
       let tl = gsap.timeline({
         scrollTrigger: {
           trigger: project,
-          start: "23% bottom",
+          start: "10% bottom",
           end: "bottom 90%",
-          scrub: false,
+          scrub: .2,
           markers: false,
         },
       });
 
       tl.set(project, {
-        y: 300,
+        y: 200,
         opacity: 0,
         scale: 0.9,
       });
@@ -103,7 +103,7 @@
     color: white;
   }
   .project .title {
-    opacity: .03;
+    opacity: 0;
     transition: 0.3s;
     z-index: 0;
   }

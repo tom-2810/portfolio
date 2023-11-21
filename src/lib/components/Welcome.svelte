@@ -33,7 +33,7 @@
     gsap.fromTo(
       ".banner",
       { opacity: 0, x: 2000, duration: 1 },
-      { opacity: 1, x: 0, rotate: "-6deg", delay: 3 }
+      { opacity: 1, x: 0, rotate: "-5deg", delay: 3 }
     );
 
     let tl = gsap.timeline({
@@ -47,7 +47,7 @@
       },
     });
     tl.to(".banner", {
-      y: -250,
+      y: -150,
     });
   });
 </script>
@@ -129,7 +129,7 @@
   .banner {
     position: relative;
     left: -60%;
-    bottom: 7.5rem;
+    bottom: 6.5rem;
     rotate: -5deg;
     width: 240%;
     background-color: white;
@@ -163,7 +163,7 @@
       top: 0;
     }
     .banner {
-      bottom: 4rem;
+      bottom: 3rem;
     }
   }
 
