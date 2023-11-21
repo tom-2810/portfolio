@@ -4,9 +4,13 @@
 
   import { gsap } from "gsap/dist/gsap";
   import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-  import { onMount } from "svelte";
+  import { onDestroy, onMount } from "svelte";
 
   gsap.registerPlugin(ScrollTrigger);
+
+  onDestroy(() => {
+    ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+  });
 
   onMount(() => {
     document.querySelectorAll(".text_block").forEach((textBlock) => {
