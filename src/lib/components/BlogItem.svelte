@@ -45,7 +45,7 @@
     display: block;
   }
   h3 {
-    font-size: clamp(1.1rem, 5vw, 2rem);
+    font-size: clamp(1.2rem, 5vw, 2rem);
     width: 100%;
     max-width: 70rem;
     margin: 0 auto;

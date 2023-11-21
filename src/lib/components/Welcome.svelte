@@ -100,8 +100,8 @@
     font-family: "Darker Grotesque", sans-serif;
     font-style: normal;
     font-weight: 600;
-    line-height: 90%;
-    letter-spacing: -0.4px;
+    line-height: 95%;
+    letter-spacing: -0.2px;
   }
   h2 {
     all: unset;
@@ -109,7 +109,7 @@
     width: min-content;
     color: white;
     font-family: "Noto Serif Display", serif;
-    font-style: normal;
+    font-style: italic;
     font-weight: 500;
     line-height: 85%;
     letter-spacing: 3px;
@@ -128,7 +128,7 @@
   .banner {
     position: relative;
     left: -60%;
-    bottom: 6.5rem;
+    bottom: 7rem;
     rotate: -5deg;
     width: 240%;
     background-color: white;

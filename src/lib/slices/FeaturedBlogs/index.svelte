@@ -59,11 +59,6 @@
   section {
     width: 100%;
   }
-  h3 {
-    max-width: 70rem;
-    font-size: 1.8rem;
-    margin: 0 auto 1rem auto;
-  }
   a {
     display: block;
     width: fit-content;

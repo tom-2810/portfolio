@@ -45,8 +45,8 @@
     font-family: "Darker Grotesque", sans-serif;
     font-style: normal;
     font-weight: 600;
-    line-height: 90%;
-    letter-spacing: -0.3px;
+    line-height: 95%;
+    letter-spacing: -0.2px;
   }
   p {
     text-wrap: balance;

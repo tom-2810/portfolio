@@ -21,7 +21,7 @@
           trigger: textBlock,
           start: "150% bottom",
           end: "110% 75%",
-          scrub: true,
+          scrub: false,
           markers: false,
         },
       });
