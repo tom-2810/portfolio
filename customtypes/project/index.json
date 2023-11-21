@@ -26,6 +26,20 @@
           "constraint": {},
           "thumbnails": []
         }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "image": {
+              "type": "SharedSlice"
+            },
+            "paragraph": {
+              "type": "SharedSlice"
+            }
+          }
+        }
       }
     }
   }

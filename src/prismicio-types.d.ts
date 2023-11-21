@@ -226,6 +226,8 @@ export type HomepageDocument<Lang extends string = string> =
     Lang
   >;
 
+type ProjectDocumentDataSlicesSlice = ImageSlice | ParagraphSlice;
+
 /**
  * Content for Project documents
  */
@@ -251,6 +253,17 @@ interface ProjectDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   image: prismic.ImageField<never>;
+
+  /**
+   * Slice Zone field in *Project*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<ProjectDocumentDataSlicesSlice>;
 }
 
 /**
@@ -441,6 +454,103 @@ export type FeaturedProjectsSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *Image → Primary*
+ */
+export interface ImageSliceDefaultPrimary {
+  /**
+   * image field in *Image → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for Image Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImageSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ImageSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Image*
+ */
+type ImageSliceVariation = ImageSliceDefault;
+
+/**
+ * Image Shared Slice
+ *
+ * - **API ID**: `image`
+ * - **Description**: Image
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImageSlice = prismic.SharedSlice<"image", ImageSliceVariation>;
+
+/**
+ * Primary content in *Paragraph → Primary*
+ */
+export interface ParagraphSliceDefaultPrimary {
+  /**
+   * heading field in *Paragraph → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: paragraph.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * text field in *Paragraph → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: paragraph.primary.text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  text: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for Paragraph Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ParagraphSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ParagraphSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Paragraph*
+ */
+type ParagraphSliceVariation = ParagraphSliceDefault;
+
+/**
+ * Paragraph Shared Slice
+ *
+ * - **API ID**: `paragraph`
+ * - **Description**: Paragraph
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ParagraphSlice = prismic.SharedSlice<
+  "paragraph",
+  ParagraphSliceVariation
+>;
+
+/**
  * Primary content in *TextBlock → Primary*
  */
 export interface TextBlockSliceDefaultPrimary {
@@ -505,6 +615,7 @@ declare module "@prismicio/client" {
       HomepageDocumentDataSlicesSlice,
       ProjectDocument,
       ProjectDocumentData,
+      ProjectDocumentDataSlicesSlice,
       AllDocumentTypes,
       AboutMeSlice,
       AboutMeSliceDefaultPrimary,
@@ -520,6 +631,14 @@ declare module "@prismicio/client" {
       FeaturedProjectsSliceDefaultItem,
       FeaturedProjectsSliceVariation,
       FeaturedProjectsSliceDefault,
+      ImageSlice,
+      ImageSliceDefaultPrimary,
+      ImageSliceVariation,
+      ImageSliceDefault,
+      ParagraphSlice,
+      ParagraphSliceDefaultPrimary,
+      ParagraphSliceVariation,
+      ParagraphSliceDefault,
       TextBlockSlice,
       TextBlockSliceDefaultPrimary,
       TextBlockSliceVariation,

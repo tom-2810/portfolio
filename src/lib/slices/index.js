@@ -3,11 +3,15 @@
 import AboutMe from "./AboutMe/index.svelte";
 import FeaturedBlogs from "./FeaturedBlogs/index.svelte";
 import FeaturedProjects from "./FeaturedProjects/index.svelte";
+import Image from "./Image/index.svelte";
+import Paragraph from "./Paragraph/index.svelte";
 import TextBlock from "./TextBlock/index.svelte";
 
 export const components = {
   about_me: AboutMe,
   featured_blogs: FeaturedBlogs,
   featured_projects: FeaturedProjects,
+  image: Image,
+  paragraph: Paragraph,
   text_block: TextBlock,
 };

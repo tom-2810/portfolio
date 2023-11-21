@@ -53,7 +53,7 @@
         tl.fromTo(project, {
             y: 94,
         },
-        {y: -250});
+        {y: -100});
     });
 </script>
 
@@ -82,8 +82,9 @@
     </div>
 
     <div class="content">
-        adfs
-        <SliceZone slices={data.data.slices} {components} />
+        <div>
+            <SliceZone slices={data.data.slices} {components} />
+        </div>
     </div>
 </section>
 
@@ -92,8 +93,15 @@
     @import url("https://fonts.googleapis.com/css2?family=Noto+Serif+Display:wght@500&display=swap");
 
     .content {
-        width: 95%;
-        max-width: 57rem;
+        width: 100%;
+        max-width: 70rem;
+        margin: 0 auto;
+    }
+    .content > div {
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+        width: 50%;
         margin: 0 auto;
     }
     .project {
@@ -120,7 +128,7 @@
         overflow: hidden;
         width: 100%;
         height: calc(4 * 13rem);
-        margin-bottom: 20rem;
+        margin-bottom: 15rem;
     }
     .banner {
         flex-shrink: 0;
@@ -143,7 +151,7 @@
         font-size: 15rem;
         font-weight: 900;
         align-items: center;
-        opacity: 0.05;
+        opacity: 0.03;
     }
     .banner:nth-child(odd) .banner-content {
         animation-direction: reverse;
@@ -152,10 +160,13 @@
         .hero {
             height: calc(3 * 13rem);
         }
+        .content > div {
+            width: 95%;
+        }
     }
     @media only screen and (max-width: 470px) {
         .hero {
-            margin-bottom: 12rem;
+            margin-bottom: 10rem;
             height: calc(4 * 5rem);
         }
         .banner {
