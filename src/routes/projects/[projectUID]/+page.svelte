@@ -46,7 +46,7 @@
                 start: `50% ${project.offsetTop + project.offsetHeight / 2 + 55}`,
                 end: `50% top`,
                 scrub: 1,
-                markers: true,
+                markers: false,
             },
         });
 
