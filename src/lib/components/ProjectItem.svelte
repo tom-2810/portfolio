@@ -59,7 +59,7 @@
   </div>
 
   <section class="item">
-    <a href="" data-uid={project.uid}>
+    <a href="/projects/{project.uid}" data-uid={project.uid}>
       <img src={project.data.image.url} alt="" />
       <h3>{project.data.title}</h3>
     </a>
