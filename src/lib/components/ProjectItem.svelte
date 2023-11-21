@@ -22,7 +22,7 @@
           trigger: project,
           start: "23% bottom",
           end: "bottom 90%",
-          scrub: .2,
+          scrub: false,
           markers: false,
         },
       });
