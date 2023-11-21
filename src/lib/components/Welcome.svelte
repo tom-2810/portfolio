@@ -15,7 +15,6 @@
 
   onMount(() => {
     const banner = document.querySelector(".banner")
-    console.log(banner.offsetTop)
     gsap.fromTo(
       "h2",
       { opacity: 0, y: -150 },

@@ -17,17 +17,8 @@
       src={blog.data.image.url}
       alt=""
       style="left: {cursor_pos.x + 20}px; top: {cursor_pos.y + 20}px;"
-      loading="eager"
     />
-    <div>
-      <div>
-        <h3>{blog.data.title}</h3>
-      </div>
-      <div />
-      <div>
-        <span>read</span>
-      </div>
-    </div>
+    <h3>{blog.data.title}</h3>
   </a>
 </li>
 
@@ -36,9 +27,13 @@
     position: fixed;
     display: none;
     pointer-events: none;
-    height: 13rem;
-    padding: 0.5rem;
-    background-color: #303030;
+    min-height: 10rem;
+    height: 100%;
+    width: 100%;
+    max-height: 12rem;
+    max-width: 18rem;
+    object-fit: cover;
+    background-color: white;
     z-index: 1;
   }
   :is(a:hover, a:focus) img {
@@ -49,28 +44,12 @@
     cursor: pointer;
     display: block;
   }
-  a > div {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-
+  h3 {
     width: 100%;
     max-width: 70rem;
     margin: 0 auto;
-    overflow: hidden;
-  }
-  a > div > div:first-of-type {
-    grid-column: 1/3;
-  }
-  a > div > div:last-of-type {
-    border-right: 1px solid #303030;
-    grid-column: 4;
-  }
-  a > div > div {
-    border-left: 1px solid #303030;
     padding: 1rem 0;
-  }
-  a > div span {
-    float: right;
+    overflow: hidden;
   }
   li {
     transition: color, background-color 0.5s;
@@ -93,11 +72,5 @@
   a:is(:hover, :focus) h3 {
     transform: translateX(8px);
     transition: 0s;
-  }
-  a:is(:hover, :focus) span::before {
-    content: "{ ";
-  }
-  a:is(:hover, :focus) span::after {
-    content: " }";
   }
 </style>
