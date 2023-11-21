@@ -41,6 +41,7 @@
         trigger: ".banner",
         start: `50% ${(banner.offsetTop + banner.offsetHeight / 2)}`,
         end: `50% top}`,
+        toggleActions: "restart pause reverse pause",
         scrub: 1.5,
         markers: false,
       },
