@@ -1,8 +1,6 @@
 <script>
   /** @type {import("@prismicio/client").Content.ParagraphSlice} */
   export let slice;
-
-  console.log(slice)
 </script>
 
 <section
@@ -15,13 +13,13 @@
 </section>
 
 <style>
-    @import url("https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@400;700;900&display=swap");
-    @import url("https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@600;700&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@400;700;900&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@600;700&display=swap");
 
   section {
     display: flex;
     flex-direction: column;
-    gap: .4rem;
+    gap: 0.4rem;
     margin: 0 auto;
   }
   h2 {
@@ -30,7 +28,7 @@
     color: white;
     font-size: 2rem;
     font-weight: 400;
-    letter-spacing: -.5px;
+    letter-spacing: -0.5px;
   }
   p {
     color: white;

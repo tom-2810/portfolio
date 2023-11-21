@@ -96,6 +96,7 @@
         width: 100%;
         max-width: 70rem;
         margin: 0 auto;
+        overflow: hidden;
     }
     .content > div {
         display: flex;
