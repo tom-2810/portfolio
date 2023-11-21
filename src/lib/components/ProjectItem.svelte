@@ -4,7 +4,6 @@
   let project = item.project ? item.project : item;
 
   import { gsap } from "gsap/dist/gsap";
-
   import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
   import { onDestroy, onMount } from "svelte";
 
@@ -16,14 +15,14 @@
 
   onMount(() => {
     document.querySelectorAll(".projects .item").forEach((project) => {
-
       project.style.opacity = 0;
 
       let tl = gsap.timeline({
         scrollTrigger: {
           trigger: project,
-          start: "60% bottom",
-          scrub: false,
+          start: "23% bottom",
+          end: "bottom 90%",
+          scrub: .2,
           markers: false,
         },
       });
@@ -31,7 +30,7 @@
       tl.set(project, {
         y: 300,
         opacity: 0,
-        scale: .9,
+        scale: 0.9,
       });
 
       tl.to(project, {
@@ -41,8 +40,6 @@
       });
     });
   });
-
-
 </script>
 
 <div class="project">
@@ -74,7 +71,7 @@
     grid-column: 2/4;
   }
   .project .item {
-    transition: .04s;
+    transition: 0.04s;
   }
   .project .title {
     position: absolute;
@@ -106,17 +103,20 @@
     color: white;
   }
   .project .title {
-    opacity: 0;
+    opacity: .03;
     transition: 0.3s;
+    z-index: 0;
   }
   .project:has(a:hover) .title {
     opacity: 1;
+    transition: 0s;
+    z-index: 1;
   }
   a:hover {
     text-decoration: underline;
   }
   section {
-    transition: .05s;
+    transition: 0.05s;
     filter: saturate(0);
   }
   section:has(a:is(:hover, :focus)) {

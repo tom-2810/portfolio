@@ -2,6 +2,20 @@
   import { getContext } from "svelte";
 
   const contact = getContext("contact-context");
+
+  import { gsap } from "gsap/dist/gsap";
+  import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+  import { onDestroy, onMount } from "svelte";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  onDestroy(() => {
+    ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+  });
+
+  onMount(() => {
+    gsap.fromTo("main .contact", { opacity: 0, duration: 1 }, { opacity: 1, delay: 2.5 });
+  });
 </script>
 
 <div class="contact">

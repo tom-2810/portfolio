@@ -44,6 +44,7 @@
     flex-direction: column;
     gap: 50rem;
     margin: 4rem 0 40rem;
+    overflow-x: hidden;
   }
   footer {
     margin-bottom: 5rem;

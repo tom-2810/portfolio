@@ -2,6 +2,53 @@
   export let data;
 
   import Contact from "./Contact.svelte";
+
+  import { gsap } from "gsap/dist/gsap";
+  import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+  import { onDestroy, onMount } from "svelte";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  onDestroy(() => {
+    ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+  });
+
+  onMount(() => {
+    const banner = document.querySelector(".banner")
+    console.log(banner.offsetTop)
+    gsap.fromTo(
+      "h2",
+      { opacity: 0, y: -150 },
+      { opacity: 1, y: 0, duration: 2, delay: 0.2 }
+    );
+
+    gsap.fromTo(
+      "img",
+      { opacity: 0, y: -150 },
+      { opacity: 1, y: 0, duration: 2 }
+    );
+
+    gsap.fromTo("h1", { opacity: 0, duration: 1 }, { opacity: 1, delay: 2.5 });
+
+    gsap.fromTo(
+      ".banner",
+      { opacity: 0, x: 2000, duration: 1 },
+      { opacity: 1, x: 0, rotate: "-6deg", delay: 3 }
+    );
+
+    let tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".banner",
+        start: `50% ${(banner.offsetTop + banner.offsetHeight / 2)}`,
+        end: `50% top}`,
+        scrub: 1.5,
+        markers: false,
+      },
+    });
+    tl.to(".banner", {
+      y: -250,
+    });
+  });
 </script>
 
 <section>
@@ -69,25 +116,28 @@
     text-transform: uppercase;
   }
   img {
+    position: relative;
     width: 50%;
     margin-left: auto;
-    transform: translateY(-2.5rem);
+    top: -2.5rem;
     margin-bottom: 2rem;
     filter: saturate(0);
     z-index: -1;
   }
 
   .banner {
-    position: fixed;
-    bottom: 0;
-    left: 0;
+    position: relative;
+    left: -60%;
+    bottom: 7.5rem;
+    rotate: -5deg;
+    width: 240%;
     background-color: white;
     font-size: 2rem;
     flex-shrink: 0;
     display: flex;
     overflow: hidden;
     gap: 0.5rem;
-    z-index: 2;
+    z-index: 1;
   }
   .banner-content {
     position: relative;
@@ -109,7 +159,10 @@
     }
     img {
       width: 100%;
-      transform: translateY(0);
+      top: 0;
+    }
+    .banner {
+      bottom: 4rem;
     }
   }
 
