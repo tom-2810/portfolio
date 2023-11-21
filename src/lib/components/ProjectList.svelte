@@ -1,10 +1,9 @@
 <script>
   export let items;
   import ProjectItem from "./ProjectItem.svelte";
-  import { fade } from "svelte/transition";
 </script>
 
-<ul class="projects" in:fade={{ duration: 500, delay: 1000 }}>
+<ul class="projects">
   {#each items as item}
     <ProjectItem {item} />
   {/each}

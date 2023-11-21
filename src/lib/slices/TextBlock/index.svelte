@@ -3,16 +3,14 @@
   export let slice;
 
   import { gsap } from "gsap/dist/gsap";
+  import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+  import { onMount } from "svelte";
 
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import { onMount } from "svelte";
+  gsap.registerPlugin(ScrollTrigger);
 
-gsap.registerPlugin(ScrollTrigger);
-
-onMount(() => {
-  document.querySelectorAll(".text_block").forEach((textBlock) => {
-
-    textBlock.style.opacity = 0;
+  onMount(() => {
+    document.querySelectorAll(".text_block").forEach((textBlock) => {
+      textBlock.style.opacity = 0;
 
       let tl = gsap.timeline({
         scrollTrigger: {
@@ -25,14 +23,14 @@ onMount(() => {
       });
 
       tl.set(textBlock, {
-        opacity: 0
+        opacity: 0,
       });
 
       tl.to(textBlock, {
-        opacity: 1
+        opacity: 1,
       });
     });
-})
+  });
 </script>
 
 <section

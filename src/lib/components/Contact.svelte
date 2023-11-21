@@ -1,11 +1,10 @@
 <script>
   import { getContext } from "svelte";
-  import { fade, fly } from "svelte/transition";
 
   const contact = getContext("contact-context");
 </script>
 
-<div class="contact" in:fade={{ duration: 1000, delay: 1500 }}>
+<div class="contact">
   <p class="status">{contact.status[0].text}</p>
 
   <ul>

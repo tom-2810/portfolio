@@ -45,7 +45,6 @@
   </div>
 
   <h2>BLOG</h2>
-  <!-- <h3>Featured blog topics</h3> -->
 
   <BlogList items={slice.items} />
 

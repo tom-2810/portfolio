@@ -1,15 +1,14 @@
 <script>
   export let data;
-  import { fade, fly } from "svelte/transition";
 
   import Contact from "./Contact.svelte";
 </script>
 
 <section>
-  <h1 in:fade={{ duration: 1000, delay: 1500 }}>{data.heading}</h1>
-  <h2 in:fly={{ y: -550, duration: 1300, delay: 150 }}>{data.name}</h2>
-  <img in:fly={{ y: -550, duration: 1300 }} src={data.image.url} alt="" />
-  <a in:fly={{ y: 100, duration: 1000, delay: 1500 }} href="#contact" class="banner">
+  <h1>{data.heading}</h1>
+  <h2>{data.name}</h2>
+  <img src={data.image.url} alt="" />
+  <a href="#contact" class="banner">
     <div class="banner-content">
       {data.banner}
       {data.banner}
@@ -87,7 +86,7 @@
     flex-shrink: 0;
     display: flex;
     overflow: hidden;
-    gap: .5rem;
+    gap: 0.5rem;
     z-index: 2;
   }
   .banner-content {
