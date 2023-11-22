@@ -17,5 +17,6 @@
   }
   img {
     width: 100%;
+    box-shadow: 0px 4px 15px 5px rgba(0, 0, 0, 0.3);
   }
 </style>

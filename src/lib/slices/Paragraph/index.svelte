@@ -1,9 +1,44 @@
 <script>
   /** @type {import("@prismicio/client").Content.ParagraphSlice} */
   export let slice;
+
+  import { gsap } from "gsap/dist/gsap";
+
+  import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+  import { onDestroy, onMount } from "svelte";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  onDestroy(() => {
+    ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+  });
+
+  onMount(() => {
+    ScrollTrigger.refresh();
+
+    document.querySelectorAll(".paragraph").forEach((paragraph) => {
+      let tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: paragraph,
+          start: "-5% bottom",
+          end: "90% bottom",
+          scrub: 2,
+          markers: false,
+        },
+      });
+
+      tl.set(paragraph, {
+        opacity: 0,
+      });
+
+      tl.to(paragraph, {
+        opacity: 1,
+      });
+    });
+  });
 </script>
 
-<section
+<section class="paragraph"
   data-slice-type={slice.slice_type}
   data-slice-variation={slice.variation}
 >
@@ -13,7 +48,7 @@
 </section>
 
 <style>
-  @import url("https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@400;700;900&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&display=swap");
   @import url("https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@600;700&display=swap");
 
   section {
@@ -24,7 +59,7 @@
   }
   h2 {
     all: unset;
-    font-family: "Playfair Display SC", serif;
+    font-family: "Playfair Display", serif;
     color: white;
     font-size: 2rem;
     font-weight: 400;
@@ -32,11 +67,11 @@
   }
   p {
     color: white;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-family: "Darker Grotesque", sans-serif;
     font-style: normal;
     font-weight: 600;
-    line-height: 95%;
-    letter-spacing: -0.2px;
+    line-height: 100%;
+    letter-spacing: -0.1px;
   }
 </style>

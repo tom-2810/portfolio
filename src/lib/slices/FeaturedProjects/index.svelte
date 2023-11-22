@@ -4,49 +4,49 @@
   /** @type {import("@prismicio/client").Content.FeaturedProjectsSlice} */
   export let slice;
 
-  import { gsap } from "gsap/dist/gsap";
+  // import { gsap } from "gsap/dist/gsap";
 
-  import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-  import { onDestroy, onMount } from "svelte";
+  // import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+  // import { onDestroy, onMount } from "svelte";
 
-  gsap.registerPlugin(ScrollTrigger);
+  // gsap.registerPlugin(ScrollTrigger);
 
-  onDestroy(() => {
-    ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-  });
+  // onDestroy(() => {
+  //   ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+  // });
 
-  onMount(() => {
-    document.querySelectorAll(".intro").forEach((intro) => {
-      let tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: intro,
-          start: "-2% bottom",
-          end: "75% bottom",
-          scrub: 1,
-          markers: false,
-        },
-      });
+  // onMount(() => {
+  //   document.querySelectorAll(".intro").forEach((intro) => {
+  //     let tl = gsap.timeline({
+  //       scrollTrigger: {
+  //         trigger: intro,
+  //         start: "-2% bottom",
+  //         end: "75% bottom",
+  //         scrub: 1,
+  //         markers: false,
+  //       },
+  //     });
 
-      tl.set(intro, {
-        y: -200,
-        scale: 0.3,
-      });
+  //     tl.set(intro, {
+  //       y: -200,
+  //       scale: 0.3,
+  //     });
 
-      tl.to(intro, {
-        y: 0,
-        scale: 1,
-      });
-    });
-  });
+  //     tl.to(intro, {
+  //       y: 0,
+  //       scale: 1,
+  //     });
+  //   });
+  // });
 </script>
 
 <section
   data-slice-type={slice.slice_type}
   data-slice-variation={slice.variation}
 >
-  <div class="intro">
+  <!-- <div class="intro">
     <img src={slice.primary.image.url} alt="" />
-  </div>
+  </div> -->
 
   <h2>PROJECTS</h2>
 

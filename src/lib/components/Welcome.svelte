@@ -14,6 +14,8 @@
   });
 
   onMount(() => {
+    ScrollTrigger.refresh();
+
     const banner = document.querySelector(".banner")
     gsap.fromTo(
       "h2",

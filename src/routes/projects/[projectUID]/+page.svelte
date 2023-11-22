@@ -15,10 +15,11 @@
     });
 
     onMount(() => {
+    ScrollTrigger.refresh();
         gsap.fromTo(
             ".project",
-            { opacity: 0, y: 1000 },
-            { opacity: 1, y: 94, duration: 1, delay: 1.7 }
+            { opacity: 0, y: -300 },
+            { opacity: 1, y: 94, duration: 1, delay: .6 }
         );
 
         const banners = document.querySelectorAll(".banner");
@@ -53,7 +54,7 @@
         tl.fromTo(project, {
             y: 94,
         },
-        {y: -100});
+        {y: -30});
     });
 </script>
 
@@ -129,7 +130,7 @@
         overflow: hidden;
         width: 100%;
         height: calc(4 * 13rem);
-        margin-bottom: 15rem;
+        margin-bottom: 10rem;
     }
     .banner {
         flex-shrink: 0;
@@ -167,7 +168,7 @@
     }
     @media only screen and (max-width: 470px) {
         .hero {
-            margin-bottom: 10rem;
+            margin-bottom: 20rem;
             height: calc(4 * 5rem);
         }
         .banner {

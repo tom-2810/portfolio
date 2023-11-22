@@ -14,6 +14,7 @@
   });
 
   onMount(() => {
+    ScrollTrigger.refresh();
     document.querySelectorAll(".projects .item").forEach((project) => {
       project.style.opacity = 0;
 
