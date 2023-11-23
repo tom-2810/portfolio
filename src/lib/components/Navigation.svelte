@@ -1,22 +1,31 @@
 <script>
-    import { page } from '$app/stores';
+    import { page } from "$app/stores";
 </script>
 
 <nav>
     <ul>
         <li>
-            <a href="/" class:active="{$page.url.pathname == "/"}">home</a>
+            <a href="/" class:active={$page.url.pathname == "/"}>home</a>
         </li>
         <li>
-            <a class="desktop" href="/projects" class:active="{$page.url.pathname.includes("/projects")}">projects</a>
+            <a
+                class="desktop"
+                href="/projects"
+                class:active={$page.url.pathname.includes("/projects")}
+                >projects</a
+            >
         </li>
         <li>
-            <a class="desktop" href="/blog" class:active="{$page.url.pathname.includes("/blog")}">blog</a>
+            <a
+                class="desktop"
+                href="/blog"
+                class:active={$page.url.pathname.includes("/blog")}>blog</a
+            >
         </li>
         <li>
             <a class="desktop" href="#contact">contact</a>
         </li>
-        
+
         <li>
             <p class="mobile">test</p>
         </li>
@@ -64,20 +73,20 @@
         content: " }";
     }
     @media only screen and (max-width: 800px) {
-    .desktop {
-      display: none;
+        .desktop {
+            display: none;
+        }
+        .mobile {
+            display: block;
+        }
+        ul :nth-child(2) {
+            display: none;
+        }
+        li {
+            font-size: 1.6rem;
+        }
+        ul li:last-child {
+            display: block;
+        }
     }
-    .mobile {
-        display: block;
-    }
-    ul :nth-child(2) {
-        display: none;
-    }
-    li {
-        font-size: 1.6rem;
-    }
-    ul li:last-child {
-        display: block;
-    }
-  }
 </style>
