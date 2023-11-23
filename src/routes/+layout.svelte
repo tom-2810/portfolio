@@ -45,7 +45,7 @@
 
 <style>
   header {
-    position: fixed;
+    position: sticky;
     top: 0;
     width: 100%;
     border-bottom: 1px solid #303030;
@@ -58,7 +58,7 @@
     display: flex;
     flex-direction: column;
     gap: 40rem;
-    margin: 4rem 0 40rem;
+    margin: 0 0 40rem;
     overflow-x: hidden;
   }
   footer {
