@@ -7,13 +7,9 @@
   import { gsap } from "gsap/dist/gsap";
 
   import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-  import { onDestroy, onMount } from "svelte";
+  import { onMount } from "svelte";
 
   gsap.registerPlugin(ScrollTrigger);
-
-  onDestroy(() => {
-    ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-  });
 
   onMount(() => {
     document.querySelectorAll(".intro").forEach((intro) => {

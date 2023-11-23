@@ -1,12 +1,27 @@
 <script>
   import Footer from "../lib/components/Footer.svelte";
   import Navigation from "../lib/components/Navigation.svelte";
-  import { onDestroy, onMount, setContext } from "svelte";
+  import {
+    afterUpdate,
+    beforeUpdate,
+    onDestroy,
+    onMount,
+    setContext,
+  } from "svelte";
   import global from "../global.css";
+  import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
   export let data;
 
   setContext("contact-context", data);
+
+  // refresh start and end positions of the scrolltrigger,
+  // wait 10 milleseconds for load animations
+  afterUpdate(() => {
+    setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 10);
+  });
 </script>
 
 <div class="background">
@@ -42,7 +57,7 @@
   main {
     display: flex;
     flex-direction: column;
-    gap: 50rem;
+    gap: 40rem;
     margin: 4rem 0 40rem;
     overflow-x: hidden;
   }

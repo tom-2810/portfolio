@@ -5,25 +5,21 @@
 
   import { gsap } from "gsap/dist/gsap";
   import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-  import { onDestroy, onMount } from "svelte";
+  import { onMount } from "svelte";
 
   gsap.registerPlugin(ScrollTrigger);
 
-  onDestroy(() => {
-    ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-  });
-
   onMount(() => {
-    ScrollTrigger.refresh();
     document.querySelectorAll(".projects .item").forEach((project) => {
       project.style.opacity = 0;
 
       let tl = gsap.timeline({
         scrollTrigger: {
           trigger: project,
-          start: "10% bottom",
-          end: "bottom 90%",
-          scrub: false,
+          start: "-150 bottom",
+          end: "40% 90%",
+          toggleAction: "restart pause reverse pause",
+          scrub: 1,
           markers: false,
         },
       });

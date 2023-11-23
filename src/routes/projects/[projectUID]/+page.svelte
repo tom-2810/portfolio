@@ -6,27 +6,26 @@
 
     import { gsap } from "gsap/dist/gsap";
     import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-    import { onDestroy, onMount } from "svelte";
+    import { onMount } from "svelte";
 
     gsap.registerPlugin(ScrollTrigger);
 
-    onDestroy(() => {
-        ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    });
-
     onMount(() => {
-    ScrollTrigger.refresh();
         gsap.fromTo(
             ".project",
             { opacity: 0, y: -300 },
-            { opacity: 1, y: 94, duration: 1, delay: .6 }
+            { opacity: 1, y: 48, duration: 1, delay: 1.3 }
+        );
+
+        gsap.fromTo(
+            ".content",
+            { opacity: 0 },
+            { opacity: 1, y: 0, delay: 0.3 }
         );
 
         const banners = document.querySelectorAll(".banner");
-        const project = document.querySelector(".project");
 
         for (let i = 0; i < banners.length; i++) {
-            console.log(banners[i]);
             if (i % 2) {
                 gsap.fromTo(
                     banners[i],
@@ -41,20 +40,6 @@
                 );
             }
         }
-        let tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: project,
-                start: `50% ${project.offsetTop + project.offsetHeight / 2 + 55}`,
-                end: `50% top`,
-                scrub: 1,
-                markers: false,
-            },
-        });
-
-        tl.fromTo(project, {
-            y: 94,
-        },
-        {y: -30});
     });
 </script>
 
@@ -93,25 +78,12 @@
     @import url("https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@400;700;900&display=swap");
     @import url("https://fonts.googleapis.com/css2?family=Noto+Serif+Display:wght@500&display=swap");
 
-    .content {
-        width: 100%;
-        max-width: 70rem;
-        margin: 0 auto;
-        overflow: hidden;
-    }
-    .content > div {
-        display: flex;
-        flex-direction: column;
-        gap: 3rem;
-        width: 50%;
-        margin: 0 auto;
-    }
     .project {
         position: absolute;
         width: 87%;
         max-width: 57rem;
         margin: 0 auto;
-        transform: translateY(4rem);
+        /* transform: translateY(3rem); */
     }
     img {
         width: 100%;
@@ -130,7 +102,7 @@
         overflow: hidden;
         width: 100%;
         height: calc(4 * 13rem);
-        margin-bottom: 10rem;
+        margin-bottom: 6rem;
     }
     .banner {
         flex-shrink: 0;

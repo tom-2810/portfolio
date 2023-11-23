@@ -5,24 +5,19 @@
   import { gsap } from "gsap/dist/gsap";
 
   import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-  import { onDestroy, onMount } from "svelte";
+  import { onMount } from "svelte";
 
   gsap.registerPlugin(ScrollTrigger);
 
-  onDestroy(() => {
-    ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-  });
-
   onMount(() => {
-    ScrollTrigger.refresh();
-
     document.querySelectorAll(".paragraph").forEach((paragraph) => {
       let tl = gsap.timeline({
         scrollTrigger: {
           trigger: paragraph,
           start: "-5% bottom",
-          end: "90% bottom",
-          scrub: 2,
+          end: "200 bottom",
+          toggleAction: "restart pause reverse pause",
+          scrub: 1.5,
           markers: false,
         },
       });
@@ -38,7 +33,8 @@
   });
 </script>
 
-<section class="paragraph"
+<section
+  class="paragraph"
   data-slice-type={slice.slice_type}
   data-slice-variation={slice.variation}
 >
@@ -55,7 +51,9 @@
     display: flex;
     flex-direction: column;
     gap: 0.4rem;
-    margin: 0 auto;
+    /* margin: 0 auto; */
+    max-width: 57rem;
+    /* grid-column: span 3; */
   }
   h2 {
     all: unset;
@@ -67,7 +65,7 @@
   }
   p {
     color: white;
-    font-size: 1.3rem;
+    font-size: clamp(1.2rem, 4vw, 1.6rem);
     font-family: "Darker Grotesque", sans-serif;
     font-style: normal;
     font-weight: 600;

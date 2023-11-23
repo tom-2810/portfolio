@@ -3,41 +3,6 @@
 
   /** @type {import("@prismicio/client").Content.FeaturedProjectsSlice} */
   export let slice;
-
-  // import { gsap } from "gsap/dist/gsap";
-
-  // import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-  // import { onDestroy, onMount } from "svelte";
-
-  // gsap.registerPlugin(ScrollTrigger);
-
-  // onDestroy(() => {
-  //   ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-  // });
-
-  // onMount(() => {
-  //   document.querySelectorAll(".intro").forEach((intro) => {
-  //     let tl = gsap.timeline({
-  //       scrollTrigger: {
-  //         trigger: intro,
-  //         start: "-2% bottom",
-  //         end: "75% bottom",
-  //         scrub: 1,
-  //         markers: false,
-  //       },
-  //     });
-
-  //     tl.set(intro, {
-  //       y: -200,
-  //       scale: 0.3,
-  //     });
-
-  //     tl.to(intro, {
-  //       y: 0,
-  //       scale: 1,
-  //     });
-  //   });
-  // });
 </script>
 
 <section

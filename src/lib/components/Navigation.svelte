@@ -74,7 +74,7 @@
         display: none;
     }
     li {
-        font-size: 1.3rem;
+        font-size: 1.6.5rem;
     }
     ul li:last-child {
         display: block;

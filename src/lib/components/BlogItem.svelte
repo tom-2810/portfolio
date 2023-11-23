@@ -12,7 +12,7 @@
 </script>
 
 <li>
-  <a href="#" on:pointermove={handleMove}>
+  <a href="/blog/{blog.uid}" on:pointermove={handleMove}>
     <img
       src={blog.data.image.url}
       alt=""

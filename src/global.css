@@ -81,3 +81,16 @@ a.active::after {
 ::-webkit-scrollbar-thumb:hover {
     background: #979797;
 }
+
+.content {
+    width: 100%;
+    max-width: 70rem;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.content>div {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}

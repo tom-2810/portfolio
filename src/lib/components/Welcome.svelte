@@ -5,18 +5,12 @@
 
   import { gsap } from "gsap/dist/gsap";
   import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-  import { onDestroy, onMount } from "svelte";
+  import { onMount } from "svelte";
 
   gsap.registerPlugin(ScrollTrigger);
 
-  onDestroy(() => {
-    ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-  });
-
   onMount(() => {
-    ScrollTrigger.refresh();
-
-    const banner = document.querySelector(".banner")
+    const banner = document.querySelector(".banner");
     gsap.fromTo(
       "h2",
       { opacity: 0, y: -150 },
@@ -40,10 +34,10 @@
     let tl = gsap.timeline({
       scrollTrigger: {
         trigger: ".banner",
-        start: `50% ${(banner.offsetTop + banner.offsetHeight / 2)}`,
-        end: `50% top}`,
-        toggleActions: "restart pause reverse pause",
-        scrub: 1.5,
+        start: `50% ${banner.offsetTop + banner.offsetHeight / 2}`,
+        end: `50% top`,
+        toggleAction: "restart pause reverse pause",
+        scrub: true,
         markers: false,
       },
     });
@@ -92,9 +86,9 @@
     gap: 0.5rem;
     max-width: 70rem;
     width: 100%;
-    margin: 4rem auto;
+    margin: 2rem auto;
     min-height: max-content;
-    max-height: 42rem;
+    /* max-height: 42rem; */
   }
   h1 {
     width: 10rem;
@@ -122,7 +116,7 @@
     width: 50%;
     margin-left: auto;
     top: -2.5rem;
-    margin-bottom: 2rem;
+    /* margin-bottom: 2rem; */
     filter: saturate(0);
     z-index: -1;
   }
@@ -130,7 +124,7 @@
   .banner {
     position: relative;
     left: -60%;
-    bottom: 7rem;
+    bottom: 5rem;
     rotate: -5deg;
     width: 240%;
     background-color: white;

@@ -4,13 +4,9 @@
 
   import { gsap } from "gsap/dist/gsap";
   import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-  import { onDestroy, onMount } from "svelte";
+  import { onMount } from "svelte";
 
   gsap.registerPlugin(ScrollTrigger);
-
-  onDestroy(() => {
-    ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-  });
 
   onMount(() => {
     document.querySelectorAll(".text_block").forEach((textBlock) => {
@@ -20,8 +16,9 @@
         scrollTrigger: {
           trigger: textBlock,
           start: "150% bottom",
-          end: "110% 75%",
-          scrub: false,
+          end: "110% 85%",
+          toggleAction: "restart pause reverse pause",
+          scrub: true,
           markers: false,
         },
       });
@@ -52,7 +49,7 @@
     max-width: 40rem;
     margin: 0 auto;
     color: white;
-    font-size: clamp(1.2rem, 5vw, 2.5rem);
+    font-size: clamp(1.7rem, 5vw, 2.5rem);
     font-family: "Darker Grotesque", sans-serif;
     font-style: normal;
     font-weight: 600;

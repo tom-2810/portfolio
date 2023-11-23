@@ -4,6 +4,8 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
+type BlogDocumentDataSlicesSlice = ParagraphSlice | ImageSlice;
+
 /**
  * Content for Blog documents
  */
@@ -29,6 +31,28 @@ interface BlogDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   image: prismic.ImageField<never>;
+
+  /**
+   * heading field in *Blog*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog.heading
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * Slice Zone field in *Blog*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<BlogDocumentDataSlicesSlice>;
 }
 
 /**
@@ -607,6 +631,7 @@ declare module "@prismicio/client" {
     export type {
       BlogDocument,
       BlogDocumentData,
+      BlogDocumentDataSlicesSlice,
       ContactDocument,
       ContactDocumentData,
       ContactDocumentDataContactLinkItem,
