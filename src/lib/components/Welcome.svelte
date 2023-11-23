@@ -13,13 +13,13 @@
     const banner = document.querySelector(".banner");
     gsap.fromTo(
       "h2",
-      { opacity: 0, y: -150 },
+      { opacity: 0, y: -130 },
       { opacity: 1, y: 0, duration: 2, delay: 0.2 }
     );
 
     gsap.fromTo(
       "img",
-      { opacity: 0, y: -150 },
+      { opacity: 0, y: -130 },
       { opacity: 1, y: 0, duration: 2 }
     );
 
