@@ -3,8 +3,10 @@
     import Page from "./page.svelte";
 
     export let data;
+
+    $: console.log(data)
 </script>
 
-{#key $page.url.pathname}
+{#key data.uid}
     <Page {data} />
 {/key}
