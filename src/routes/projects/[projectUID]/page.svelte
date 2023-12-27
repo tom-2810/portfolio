@@ -10,7 +10,7 @@
 
     gsap.registerPlugin(ScrollTrigger);
 
-    onMount(() => {
+    $: onMount(() => {
         console.log('test')
         gsap.fromTo(
             ".project",
