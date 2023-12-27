@@ -10,7 +10,7 @@
 
     gsap.registerPlugin(ScrollTrigger);
 
-    $: onMount(() => {
+    onMount(() => {
         console.log('test')
         gsap.fromTo(
             ".project",
@@ -69,10 +69,10 @@
     </div>
 
     <div class="content">
-        <a href="https://portfolio-of-tom.vercel.app/projects/vervoerregio-amsterdam"
+        <a href="http://localhost:5173/projects/vervoerregio-amsterdam"
             >http://localhost:5173/projects/vervoerregio-amsterdam</a
         >
-        <a href="https://portfolio-of-tom.vercel.app/projects/schiphol"
+        <a href="http://localhost:5173/projects/schiphol"
             >http://localhost:5173/projects/schiphol</a
         >
         <div>

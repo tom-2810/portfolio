@@ -1,6 +1,6 @@
 <script>
     import { page } from "$app/stores";
-    import Page from "./page.svelte";
+    import Page from "$lib/components/ProjectPage.svelte";
 
     export let data;
 
