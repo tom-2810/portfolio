@@ -11,6 +11,7 @@
     gsap.registerPlugin(ScrollTrigger);
 
     onMount(() => {
+        console.log('test')
         gsap.fromTo(
             ".project",
             { opacity: 0, y: -300 },
