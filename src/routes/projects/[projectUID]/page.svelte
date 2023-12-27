@@ -69,10 +69,10 @@
     </div>
 
     <div class="content">
-        <a href="http://localhost:5173/projects/vervoerregio-amsterdam"
+        <a href="https://portfolio-of-tom.vercel.app/projects/vervoerregio-amsterdam"
             >http://localhost:5173/projects/vervoerregio-amsterdam</a
         >
-        <a href="http://localhost:5173/projects/schiphol"
+        <a href="https://portfolio-of-tom.vercel.app/projects/schiphol"
             >http://localhost:5173/projects/schiphol</a
         >
         <div>
