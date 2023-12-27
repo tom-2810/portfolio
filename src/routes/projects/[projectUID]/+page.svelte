@@ -7,6 +7,6 @@
     $: console.log(data)
 </script>
 
-{#key data.uid}
-    <Page {data} />
+{#key $page.url.pathname}
+	<Page data={data} />
 {/key}
