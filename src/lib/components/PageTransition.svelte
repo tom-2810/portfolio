@@ -11,7 +11,21 @@
         gsap.fromTo(
             ".page-transition",
             { top: "0vh", display: "block" },
-            { top: "-100vh", duration: 0.6, delay: 1, ease: "power1.inOut" },
+            {
+                top: "-100vh",
+                duration: 0.6,
+                delay: 1,
+                ease: "power1.inOut",
+                onComplete: () => {
+                    gsap.set(".page-transition", { display: "none" });
+                    gsap.to(".page-transition", {
+                        display: "block",
+                        top: "100vh",
+                        duration: 0,
+                        opacity: 1,
+                    });
+                },
+            },
         );
         // gsap.set(".page-transition", { top: "0vh", display: "block" });
         // gsap.to(".page-transition", { top: "-100vh", duration: .8, delay: 1 });
@@ -51,9 +65,7 @@
     });
 </script>
 
-<div class="page-transition">
-    <slot />
-</div>
+<div class="page-transition"></div>
 
 <style>
     div {
