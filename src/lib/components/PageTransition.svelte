@@ -2,31 +2,34 @@
     import { fly } from "svelte/transition";
     import { goto } from "$app/navigation";
     import { beforeUpdate, onMount } from "svelte";
+    import { page } from "$app/stores";
     import { gsap } from "gsap/dist/gsap";
 
     onMount(() => {
         gsap.set(".page-transition", { top: "0vh", display: "block" });
-        gsap.to(".page-transition", { top: "100vh", duration: 1, delay: .5 });
+        gsap.to(".page-transition", { top: "-100vh", duration: 1, delay: 0.3 });
 
         document.querySelectorAll("a").forEach((link) => {
             // gsap.set(".page-transition", { top: "99vh", duration: 0 });
             link.addEventListener("click", function (e) {
-                e.preventDefault();
-                let destination = link.href;
+                if (link.href !== $page.url.href) {
+                    e.preventDefault();
+                    let destination = link.href;
 
-                gsap.fromTo(
-                    ".page-transition",
-                    {
-                        top: "100vh",
-                        duration: 1,
-                    },
-                    {
-                        top: "0vh",
-                        onComplete: () => {
-                            goto(destination);
+                    gsap.fromTo(
+                        ".page-transition",
+                        {
+                            top: "100vh",
+                            duration: 0.6,
                         },
-                    },
-                );
+                        {
+                            top: "0vh",
+                            onComplete: () => {
+                                goto(destination);
+                            },
+                        },
+                    );
+                }
             });
         });
     });
@@ -43,7 +46,7 @@
         top: 0vh;
         height: 100vh;
         width: 100%;
-        background-color: red;
+        background-color: rgb(49, 49, 49);
         z-index: 3;
     }
 </style>
