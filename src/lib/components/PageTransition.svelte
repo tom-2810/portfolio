@@ -5,25 +5,41 @@
     import { page } from "$app/stores";
     import { gsap } from "gsap/dist/gsap";
 
+    $: currentURL = "";
     onMount(() => {
-        gsap.set(".page-transition", { top: "0vh", display: "block" });
-        gsap.to(".page-transition", { top: "-100vh", duration: 1, delay: 0.3 });
+        currentURL = window.location;
+        gsap.fromTo(
+            ".page-transition",
+            { top: "0vh", display: "block" },
+            { top: "-100vh", duration: 0.6, delay: 1, ease: "power1.inOut" },
+        );
+        // gsap.set(".page-transition", { top: "0vh", display: "block" });
+        // gsap.to(".page-transition", { top: "-100vh", duration: .8, delay: 1 });
 
         document.querySelectorAll("a").forEach((link) => {
             // gsap.set(".page-transition", { top: "99vh", duration: 0 });
             link.addEventListener("click", function (e) {
-                if (link.href !== $page.url.href) {
-                    e.preventDefault();
-                    let destination = link.href;
+                // console.log(link.href + " " + currentURL);
+                e.preventDefault();
+                let destination = link.href;
+                console.log(currentURL);
 
+                if (destination == currentURL) {
+                    console.log("nope");
+                } else {
                     gsap.fromTo(
                         ".page-transition",
                         {
                             top: "100vh",
-                            duration: 0.6,
+                            delay: 3,
+                            duration: 0.4,
+                            ease: "power1.inOut",
                         },
                         {
                             top: "0vh",
+                            delay: 0.3,
+                            duration: 0.4,
+                            ease: "power1.inOut",
                             onComplete: () => {
                                 goto(destination);
                             },
