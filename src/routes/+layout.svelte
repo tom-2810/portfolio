@@ -1,6 +1,7 @@
 <script>
   import Footer from "../lib/components/Footer.svelte";
   import Navigation from "../lib/components/Navigation.svelte";
+  import PageTransitions from "$lib/components/PageTransitionsContainer.svelte";
   import {
     afterUpdate,
     beforeUpdate,
@@ -10,6 +11,7 @@
   } from "svelte";
   import global from "../global.css";
   import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+  import { page } from '$app/stores'
 
   export let data;
 
@@ -24,24 +26,25 @@
   });
 </script>
 
-<div class="background">
-  <div class="columns">
-    <div />
-    <div />
-    <div />
-    <div />
+<PageTransitions refresh={$page.url.pathname} />
+  <div class="background">
+    <div class="columns">
+      <div />
+      <div />
+      <div />
+      <div />
+    </div>
   </div>
-</div>
-<header>
-  <Navigation />
-</header>
+  <header>
+    <Navigation />
+  </header>
 
-<main>
-  <slot />
-</main>
-<footer>
-  <Footer />
-</footer>
+  <main>
+    <slot />
+  </main>
+  <footer>
+    <Footer />
+  </footer>
 
 <style>
   header {
