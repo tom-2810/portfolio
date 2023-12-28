@@ -38,7 +38,7 @@
                         {
                             top: "0vh",
                             delay: 0.3,
-                            duration: 0.4,
+                            duration: 0.5,
                             ease: "power1.inOut",
                             onComplete: () => {
                                 goto(destination);
