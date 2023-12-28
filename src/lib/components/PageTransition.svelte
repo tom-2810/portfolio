@@ -27,19 +27,14 @@
                 },
             },
         );
-        // gsap.set(".page-transition", { top: "0vh", display: "block" });
-        // gsap.to(".page-transition", { top: "-100vh", duration: .8, delay: 1 });
 
         document.querySelectorAll("a").forEach((link) => {
-            // gsap.set(".page-transition", { top: "99vh", duration: 0 });
             link.addEventListener("click", function (e) {
-                // console.log(link.href + " " + currentURL);
                 e.preventDefault();
                 let destination = link.href;
-                console.log(currentURL);
 
                 if (destination == currentURL) {
-                    console.log("nope");
+                    return
                 } else {
                     gsap.fromTo(
                         ".page-transition",
