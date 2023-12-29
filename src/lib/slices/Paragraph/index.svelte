@@ -64,6 +64,7 @@
     letter-spacing: -0.5px;
   }
   p {
+    white-space: pre-line;
     color: white;
     font-size: clamp(1.2rem, 4vw, 1.6rem);
     font-family: "Darker Grotesque", sans-serif;
